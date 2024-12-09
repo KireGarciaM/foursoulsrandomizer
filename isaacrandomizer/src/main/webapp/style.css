@@ -1,0 +1,1586 @@
+body {
+  margin: 0px;
+  padding: 0px;
+  text-align: left;
+  font: 18px 'Roboto', Helvetica, sans-serif;
+  color: #FFF;
+  background-color: #000;
+  font-family: 'Roboto', Helvetica, sans-serif;
+  position:relative;
+  background-image: url(https://foursouls.com/wp-content/uploads/2021/07/FourSoulsBackgroundStarLayer05.png), url(https://foursouls.com/wp-content/uploads/2021/07/FourSoulsBackgroundStarLayer04.png), url(https://foursouls.com/wp-content/uploads/2021/07/FourSoulsBackgroundStarLayer03.png), url(https://foursouls.com/wp-content/uploads/2021/07/FourSoulsBackgroundStarLayer02.png), url(https://foursouls.com/wp-content/uploads/2021/07/FourSoulsBackgroundStarLayer01.png), url(/resources/images/halo/haloimage.jpg);
+  animation: planetariumBackground 120s linear infinite;
+  background-size: 600px 400px,600px 400px,600px 400px,600px 400px,600px 400px,1920px 1080px;
+  -webkit-font-smoothing: subpixel-antialiased;
+  }
+
+@keyframes planetariumBackground {
+  from { background-position: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%; }
+  to { background-position: -7200px 4800px, -6000px 4000px, -4800px 3200px, -3600px 2400px, -2400px 1600px, 0% 0%; }
+}
+body.error404 {
+  background-image: url(https://foursouls.com/wp-content/uploads/2021/07/FourSoulsBackground404.png);
+  animation: planetariumBackground 300s linear infinite;
+}
+@keyframes errorBackground {
+  from { background-position: 0% 0%; }
+  to { background-position: -3600px 2400px; }
+}
+
+.center-img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+.center {
+    text-align: center;
+  }
+  
+#page-content{
+  border-image-source: url(https://foursouls.com/wp-content/uploads/2021/08/FourSoulsPageBorderV5.png);
+  border-image-width: 156px 104px;
+  border-image-repeat: stretch repeat;
+  border-image-slice: 156 104 156 fill;
+  padding: 50px 128px 124px 128px;
+  box-sizing: border-box;
+  overflow: hidden;
+  image-rendering: crisp-edges;
+  margin-bottom: 80px;
+} 
+
+.container {
+  display: block;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+  width: 1024px;
+  position: relative;
+}
+
+.wp-block-image img {
+  height: auto;
+  }
+  .pixelify, #page-content .pixelify {
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+  }
+  .centerText {
+  text-align:center;
+  }
+  a[role="link"] {color:#0094FF; text-decoration:underline; cursor:pointer;} a:link {color:#0094FF;} a:visited {color:#0094FF;} a:hover {color:#00CCFF;} a:active {color:#00FFFF;} h1, h2, h3, h4, h5, h6 {
+  text-transform: uppercase;
+  font: FourSoulsMain, Helvetica, sans-serif;
+  font-family: FourSoulsMain, Helvetica, sans-serif;
+  }
+  h1 {
+  text-align:center;
+  font-size:250%;
+  letter-spacing:2px;
+  }
+  body.postid-7374 h1 {
+  font-family:TimeFcuk, Helvetica, sans-serif;
+  }
+  body.postid-8417 h1, body.postid-8419 h1 {
+  font-family:FourSoulsStatblock, Helvetica, sans-serif;
+  font-size: 330%;
+  }
+  body.postid-9135 h1 {
+  font-family:FourSoulsAltStats, Helvetica, sans-serif;
+  }
+  .rewardTitle {
+  text-align:center;
+  } .alignnone {
+  }
+  .aligncenter,
+  div.aligncenter {
+  display: block;
+  margin: 5px auto 5px auto;
+  }
+  .alignright {
+  float:right;
+  margin: 5px 0 20px 20px;
+  }
+  .alignleft {
+  float: left;
+  margin: 5px 20px 20px 0;
+  }
+  a img.alignright {
+  float: right;
+  margin: 5px 0 20px 20px;
+  }
+  a img.alignnone {
+  }
+  a img.alignleft {
+  float: left;
+  margin: 5px 20px 20px 0;
+  }
+  a img.aligncenter {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  }
+  .wp-caption {
+  background: #fff;
+  border: 1px solid #f0f0f0;
+  max-width: 96%; padding: 5px 3px 10px;
+  text-align: center;
+  }
+  .wp-caption.alignnone {
+  margin: 5px 20px 20px 0;
+  clear:both;
+  }
+  .wp-caption.alignleft {
+  margin: 5px 20px 20px 0;
+  clear:both;
+  }
+  .wp-caption.alignright {
+  clear:both;
+  }
+  .wp-caption img {
+  border: 0 none;
+  height: auto;
+  margin: 0;
+  max-width: 98.5%;
+  padding: 0;
+  width: auto;
+  }
+  .wp-caption p.wp-caption-text {
+  font-size: 11px;
+  line-height: 17px;
+  margin: 0;
+  padding: 0 4px 5px;
+  color:#000;
+  }
+  p:empty {
+  display: none;
+  } .screen-reader-text {
+  clip: rect(1px, 1px, 1px, 1px);
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  }
+  .screen-reader-text:focus {
+  background-color: #f1f1f1;
+  border-radius: 3px;
+  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+  clip: auto !important;
+  color: #21759b;
+  display: block;
+  font-size: 14px;
+  font-size: 0.875rem;
+  font-weight: bold;
+  height: auto;
+  left: 5px;
+  line-height: normal;
+  padding: 15px 23px 14px;
+  text-decoration: none;
+  top: 5px;
+  width: auto;
+  z-index: 100000; } .container {
+  display: block; 
+  height:auto;
+  margin-left:auto;
+  margin-right:auto;
+  width: 1024px;
+  position:relative;
+  }
+  header {
+  overflow: hidden;
+  }
+  .home header #LogoImg {
+  width:526px;
+  height:300px;
+  }
+  .home header #LogoImgLink {
+  width:526px;
+  height:300px;
+  margin:0 auto;
+  display:block;
+  }
+  header #LogoImg {
+  width:263px;
+  height:150px;
+  }
+  header #LogoImgLink {
+  width:263px;
+  height:150px;
+  margin:0 auto;
+  display:block;
+  }
+  #DiscordJoinImg {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 90px;
+  height: auto;
+  }
+  #planetariumThemeToggle {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background-image: url(https://foursouls.com/wp-content/uploads/2021/07/ForgottenLullabySwitch.png);
+  background-size: 200px 50px;
+  left: 90px;
+  top: 90px;
+  z-index: 9999;
+  }
+
+  #page-content img {
+  image-rendering: initial;
+  }
+  #page-content img.borderStitchimgTop, #page-content img.borderStitchimgBottom {
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+  }
+  #HomeContent {
+  overflow:hidden;
+  }
+  main {
+  position:relative;
+  overflow: hidden;
+  }
+  body.error404 #page-content {
+  border-image-source: url(https://foursouls.com/wp-content/uploads/2021/07/FourSouls404PageBorder.png);
+  border-image-repeat: stretch stretch;
+  }
+  .blogSignature {display:flex; max-width:100px;}
+  .blogSignatureImage {width:282px; margin-right:30px;}
+  .blogSigImg {width:300px; height:100px;}
+  .blogSignatureText {flex-grow:1; font: 18px FourSoulsMain, Helvetica, sans-serif; font-family: FourSoulsMain, Helvetica, sans-serif; text-transform: lowercase;}
+  #HomeSidebar {
+  float:right;
+  display:block;
+  width:30%;
+  margin:0 0 5% 5%;
+  border-image-source: url(https://foursouls.com/wp-content/uploads/2021/07/BoISidebarPaperBackground.png);
+  border-image-width: 49px 14px 45px 14px;
+  border-image-repeat: stretch round;
+  border-image-slice: 49 14 45 fill;
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+  padding: 30px 2% 2% 2%;
+  box-sizing: border-box;
+  color:#322417;
+  text-align:center;
+  position:relative;
+  font: 18px FourSoulsMain, Helvetica, sans-serif;
+  font-family: FourSoulsMain, Helvetica, sans-serif;
+  text-transform: lowercase;
+  }
+  #HomeSidebar .textwidget {
+  background-color:#C7B29A;
+  }
+  #HomeSidebar img.small {
+  height:50px;
+  width:auto;
+  margin-top:0;
+  margin-bottom:0;
+  }
+  #HomeSidebar img.adimg {
+  height:200px;
+  width:200px;
+  position:absolute;
+  margin-left:-100px;
+  top:-170px;
+  }
+  #HomeSidebar a:link {color:#002A47;} #HomeSidebar a:visited {color:#002A47;} #HomeSidebar a:hover {color:#0068B2;} #HomeSidebar a:active {color:#0099FF;} #HomeSidebar h3, #HomeSidebar h4 {
+  margin-top:5px;
+  margin-bottom:5px;
+  }
+  .newsDate {
+  margin-top:20px;
+  }
+  #quickSearchIcon, #quickSearchIconBG {
+  display:block;
+  position:absolute;
+  right:10px;
+  top:10px;
+  width:70px;
+  height:70px;
+  cursor:pointer;
+  z-index:99;
+  -ms-transform: rotate(-45deg); transform: rotate(-45deg);
+  }
+  #quickSearchIconBG {
+  z-index:9;
+  opacity:0;
+  transition:all 0.5s;
+  }
+  #quickSearchIconBG.quickSearchIconBGActive {
+  opacity:1;
+  }
+  #quickSearchBox {
+  display:flex;
+  width:0;
+  position:absolute;
+  right:80px;
+  top:30px;
+  transition:all 0.5s;
+  overflow:hidden;
+  height:30px;
+  z-index:999;
+  }
+  #quickSearchBox.quickSearchBoxActive {
+  width:25%;
+  }
+  #Cardsearch_QuickSearchText {
+  width:70%;
+  flex-grow:1;
+  }
+  #Cardsearch_QuickSearchText input[type="text"] {
+  box-sizing:border-box; 
+  width:100%;
+  height:100%;
+  }
+  #quickSearchBox input[type="submit"] {
+  width:20%;
+  }
+  #menu-main-menu {
+  display:flex;
+  text-transform:uppercase;
+  padding:0;
+  margin-bottom:80px;
+  font: FourSoulsMain, Helvetica, sans-serif;
+  font-family: FourSoulsMain, Helvetica, sans-serif;
+  }
+  #menu-main-menu li {
+  display:block;
+  flex-grow:1;
+  text-align:center;
+  position:relative;
+  font-size:24px;
+  line-height:48px;
+  }
+  #menu-main-menu li::before {
+  display:block;
+  width:100px;
+  height:100px;
+  content: "";
+  margin: 0 auto;
+  background-repeat:no-repeat;
+  background-size:200px 100px;
+  }
+  #menu-main-menu li.slotmachine {
+  line-height:24px;
+  }
+  #menu-main-menu li.goldchest::before {
+  background-image:url(https://foursouls.com/wp-content/uploads/2021/07/gold_chest.png);
+  }
+  #menu-main-menu li.woodchest::before {
+  background-image:url(https://foursouls.com/wp-content/uploads/2021/07/wooden_chest.png);
+  }
+  #menu-main-menu li.redchest::before {
+  background-image:url(https://foursouls.com/wp-content/uploads/2021/07/red_chest.png);
+  }
+  #menu-main-menu li.slotmachine::before {
+  background-image:url(https://foursouls.com/wp-content/uploads/2021/07/Menu_Deckbuilding.png);
+  background-size:300px 100px;
+  background-position: 0 0;
+  animation: menuslotmachinebackwards 0.35s steps(2, end);
+  }
+  #menu-main-menu li.dirtychest::before {
+  background-image:url(https://foursouls.com/wp-content/uploads/2021/07/dirty_chest.png);
+  }
+  #menu-main-menu li.holychest::before {
+  background-image:url(https://foursouls.com/wp-content/uploads/2021/07/holy_chest.png);
+  }
+  #menu-main-menu li:hover::before {
+  background-position:-100px 0;
+  }
+  #menu-main-menu li.slotmachine:hover::before {
+  background-position: -200px 0;
+  animation: menuslotmachineforwards 0.35s steps(2, end);
+  }
+  @keyframes menuslotmachineforwards {
+  from { background-position: 0 0; }
+  to { background-position: -200px 0; }
+  }
+  @keyframes menuslotmachinebackwards {
+  from { background-position: -200px 0; }
+  to { background-position: 0 0; }
+  }
+  #menu-main-menu li.redchest::after {
+  display: block;
+  position: absolute;
+  font-size: 40%;
+  top: 130px;
+  width: 100%;
+  content:'(not yet done!)';
+  }
+  #menu-main-menu li a {
+  display: block;
+  height:48px;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding-top: 100px;
+  text-decoration:none;
+  }
+  #menu-main-menu li a:link {color:#FFF;} #menu-main-menu li a:visited {color:#FFF;} #menu-main-menu li a:hover {color:#EEE; font-weight:900;} #menu-main-menu li a:active {color:#FFF; font-weight:900;} .CardTypeIcons {display:flex; flex-wrap:wrap;}
+  .CardTypeIconSection {width:25%; flex-grow:1; margin: 0 0 20px 0;}
+  .CardTypeIconSection a {display:block; text-decoration:none;}
+  .CardTypeIconSection .CardTypeHover {position: relative; width:100px; height:100px; margin:0 auto;}
+  .CardTypeIconSection .CardTypeHover img {border-radius:7px; max-width:100px; max-height:100px; width:auto; height:auto; display:block; z-index: 999; position: absolute; left:0; right:0; margin: 0 auto;}
+  .CardTypeIconSection .CardTypeHover.RoomCardTypeHover img {margin-top:10px;}
+  .CardTypeIconSection .CardTypeHover::after {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: url(https://foursouls.com/wp-content/uploads/2021/07/ItemSunbeams-150x150.png);
+  background-size: 100px 100px;
+  background-repeat:no-repeat;
+  content: '';
+  display: block;
+  left: 0;
+  top: 0;
+  animation: HoverSunbeams 20s infinite;
+  -webkit-animation: HoverSunbeams 20s infinite;
+  animation-timing-function: linear;
+  -webkit-animation-timing-function: linear;
+  opacity:0;
+  }
+  .CardTypeIconSection h3 {font-size: 80%; text-align:center; margin:0 0 2px 0; padding-top:10px;}
+  .CardTypeIconSection span {display:block; text-align:center; font-size:120%;}
+  .CardExpansionIcons {display:flex; flex-wrap:wrap;}
+  .CardExpansionIconSection {width:20%; flex-grow:1; margin: 0 0 20px 0;}
+  .CardExpansionIconSection a {display:block; text-decoration:none;}
+  .CardExpansionIconSection .CardExpansionHover {position: relative; width:80px; height:80px; margin:0 auto;}
+  .CardExpansionIconSection .CardExpansionHover img {width:100%; height:100%; display:block; z-index: 999; position: absolute; transition: all 0.5s; filter: brightness(1) sepia(0) saturate(10000%);}
+  .CardExpansionIconSection a:hover img {transition: all 0.5s;}
+  .CardExpansionIconSection a img.bicon {filter:brightness(1) sepia(0) saturate(10000%) hue-rotate(300deg);}
+  .CardExpansionIconSection a:hover img.bicon {filter:brightness(0.8) sepia(1) saturate(10000%) hue-rotate(300deg);}
+  .CardExpansionIconSection a:hover img.gicon {filter:brightness(0.8) sepia(1) saturate(10000%);}
+  .CardExpansionIconSection a img.fspicon {filter:brightness(1) sepia(0) saturate(10000%) hue-rotate(100deg);}
+  .CardExpansionIconSection a:hover img.fspicon {filter:brightness(0.8) sepia(1) saturate(500%) hue-rotate(100deg);}
+  .CardExpansionIconSection a img.b2icon {filter:brightness(1) sepia(0) saturate(10000%) hue-rotate(300deg);}
+  .CardExpansionIconSection a:hover img.b2icon {filter:brightness(0.8) sepia(1) saturate(10000%) hue-rotate(300deg);}
+  .CardExpansionIconSection a:hover img.g2icon {filter:brightness(0.8) sepia(1) saturate(10000%);}
+  .CardExpansionIconSection a img.fsp2icon {filter:brightness(1) sepia(0) saturate(10000%) hue-rotate(100deg);}
+  .CardExpansionIconSection a:hover img.fsp2icon {filter:brightness(0.8) sepia(1) saturate(500%) hue-rotate(100deg);}
+  .CardExpansionIconSection a:hover img.ricon {filter:brightness(0.5) sepia(1) saturate(10000%);}
+  .CardExpansionIconSection a img.rwzicon {filter:brightness(1) sepia(0) saturate(10000%) hue-rotate(280deg);}
+  .CardExpansionIconSection a:hover img.rwzicon {filter:brightness(0.5) sepia(1) saturate(10000%) hue-rotate(280deg);}
+  .CardExpansionIconSection a:hover img.aaicon {filter:brightness(0.8) sepia(1) saturate(10000%);}
+  .CardExpansionIconSection a:hover img.giicon {filter:brightness(0);}
+  .CardExpansionIconSection a:hover img.ticon {filter:brightness(0.5) sepia(1) saturate(10000%);}
+  .CardExpansionIconSection a:hover img.picon {filter:brightness(0.8) sepia(1) saturate(10000%);}
+  .CardExpansionIconSection a:hover img.bumicon {filter:brightness(0.8) sepia(1) saturate(10000%);}
+  .CardExpansionIconSection a:hover img.boxicon {filter:brightness(0.8) sepia(1) saturate(10000%);}
+  .CardExpansionIconSection a img.twicon {filter:brightness(1) sepia(0) saturate(10000%) hue-rotate(220deg);}
+  .CardExpansionIconSection a:hover img.twicon {filter:brightness(0.8) sepia(1) saturate(10000%) hue-rotate(220deg);}
+  .CardExpansionIconSection a:hover img.dkicon {filter:brightness(0.6);}
+  .CardExpansionIconSection a img.reticon {filter:brightness(1) sepia(0) saturate(10000%) hue-rotate(280deg);}
+  .CardExpansionIconSection a:hover img.gficon {filter:brightness(0.8) sepia(1) saturate(10000%) hue-rotate(130deg);}
+  .CardExpansionIconSection a:hover img.blankicon {filter:brightness(0.6);}
+  .CardExpansionIconSection a:hover img.rebalanceicon {filter:brightness(0.5) sepia(1) saturate(10000%) hue-rotate(240deg);}
+  .CardExpansionIconSection a:hover img.challengeicon {filter:brightness(0.8) sepia(1) saturate(10000%);}
+  .CardExpansionIconSection .CardExpansionHover::after {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: url(https://foursouls.com/wp-content/uploads/2021/07/ItemSunbeams-150x150.png);
+  background-size: 80px 80px;
+  background-repeat:no-repeat;
+  content: '';
+  display: block;
+  left: 0;
+  top: 0;
+  animation: HoverSunbeams 20s infinite;
+  -webkit-animation: HoverSunbeams 20s infinite;
+  animation-timing-function: linear;
+  -webkit-animation-timing-function: linear;
+  opacity:0;
+  transition: opacity 1s;
+  }
+  .CardExpansionIconSection h3 {font-size: 80%; text-align:center; margin:4px 0 2px 0;}
+  .CardExpansionIconSection span {display:block; text-align:center; font-size:120%;}
+  .CardExpansionIcons_six .CardExpansionIconSection {width:16%; flex-grow:1; margin: 0 0 20px 0;}
+  .CardTypeIconSection a:hover .CardTypeHover::after, .CardExpansionIconSection a:hover .CardExpansionHover::after {
+  opacity:1;
+  transition: opacity 1s;
+  }
+  @-webkit-keyframes HoverSunbeams
+  {  
+  0%   {-webkit-transform: rotateZ(0deg); -webkit-transform-origin: 50% 50% 0;}  
+  100% {-webkit-transform: rotateZ(360deg); -webkit-transform-origin: 50% 50% 0;}  
+  }
+  @keyframes HoverSunbeams
+  {  
+  0%   {transform: rotateZ(0deg); transform-origin: 50% 50% 0;}  
+  100% {transform: rotateZ(360deg); transform-origin: 50% 50% 0;}  
+  }
+  .AdditionalCardSection {display:flex; justify-content:space-between;}
+  .AdditionalCardSection h3 {text-align:center;}
+  .CardOtherSection, .CardOlderSection {width:49%;}
+  #CardDisplay {
+  display:flex;
+  }
+  #CardImages {
+  display:flex;
+  }
+  .cardFront, .cardBack {
+  width:100%;
+  height:auto;
+  border-radius: 20px;
+  clip-path: inset(3.1% round 4%) !important;
+  }
+  #CardLeft, #CardRight {
+  width: 30%;
+  }
+  main.supersized #CardDisplay {
+  flex-wrap:wrap;
+  }
+  main.supersized #CardLeft, main.supersized #CardRight {
+  width:48%;
+  margin:0 1%;
+  }
+  main.supersized #CardInfo {
+  width:96%;
+  order:3;
+  }
+  main.supersized #StatTable {
+  float: left;
+  width: 50%;
+  }
+  main.supersized #StatTable .statIconContainer {
+  text-align:right;
+  }
+  .pdfDownloadPaper {
+  border-image-source: url(https://foursouls.com/wp-content/uploads/2021/07/BoISidebarPaperBackground.png);
+  border-image-width: 49px 14px 45px 14px;
+  border-image-repeat: stretch round;
+  border-image-slice: 49 14 45 fill;
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+  padding: 4% 2% 8% 2%;
+  box-sizing: border-box;
+  color:#322417;
+  text-align:center;
+  overflow:hidden;
+  margin-bottom:10px;
+  }
+  .pdfDownloadPaper a {
+  display:block;
+  }
+  .pdfDownloadPaper .pdfIcon {
+  image-rendering: initial;
+  max-width:20%;
+  height:auto;
+  float:left;
+  }
+  #CardInfo {
+  width:36%;
+  padding:0 2%;
+  font: FourSoulsMain, Helvetica, sans-serif;
+  font-family: FourSoulsMain, Helvetica, sans-serif;
+  text-transform: lowercase;
+  }
+  #OriginSet, #RelatedFranchiseSet {
+  font-size:130%;
+  display:flex;
+  margin:0 auto 10px auto;
+  padding: 5px 5px 10px 5px;
+  background-color:#000;
+  border: solid 3px #FFF;
+  color: #FFF;
+  text-align:center;
+  flex-wrap:wrap;
+  }
+  #RelatedFranchiseSet {
+  display:block;
+  text-decoration:none;
+  }
+  #OriginSet p, #RelatedFranchiseSet p {width:100%; margin:0;}
+  #OriginSet div, #RelatedFranchiseSet div {min-width:33%; flex-grow:1;}
+  #OriginSet .competitiveIndicator, #OriginSet .rebalancedIndicator, #OriginSet .originIndicator { image-rendering: auto; background-position:center center; height:30px; background-size:30px 30px; margin-top:5px; background-repeat:no-repeat; }
+  #OriginSet .difficultyIndicator { image-rendering: auto; background-position:center center; height:30px; background-size:30px 30px; margin-top:5px; background-repeat:no-repeat; }
+  #OriginSet .difficultyIndicator.allDifficulty { background-size:109px 30px; background-image: url(https://foursouls.com/wp-content/uploads/2022/04/DifficultyIconAll.png); }
+  #OriginSet .difficultyIndicator.normHardDifficulty,
+  #OriginSet .difficultyIndicator.normUltraDifficulty,
+  #OriginSet .difficultyIndicator.hardUltraDifficulty { background-size:69px 30px; }
+  #OriginSet .difficultyIndicator.normHardDifficulty { background-image: url(https://foursouls.com/wp-content/uploads/2022/04/DifficultyIconNormHard.png); }
+  #OriginSet .difficultyIndicator.normUltradDifficulty { background-image: url(https://foursouls.com/wp-content/uploads/2022/04/DifficultyIconNormUltra.png); }
+  #OriginSet .difficultyIndicator.hardUltraDifficulty { background-image: url(https://foursouls.com/wp-content/uploads/2022/04/DifficultyIconHardUltra.png); }
+  #OriginSet .difficultyIndicator.normDifficulty { background-image: url(https://foursouls.com/wp-content/uploads/2022/04/DifficultyIconNormal.png); }
+  #OriginSet .difficultyIndicator.hardDifficulty { background-image: url(https://foursouls.com/wp-content/uploads/2022/04/DifficultyIconHard.png); }
+  #OriginSet .difficultyIndicator.ultraDifficulty { background-image: url(https://foursouls.com/wp-content/uploads/2022/04/DifficultyIconUltraHard.png); }
+  #OriginSet .difficultyIndicator.compDifficulty { background-image: url(https://foursouls.com/wp-content/uploads/2022/08/DifficultyIconCompetitive.png); }
+  #OriginSet .rebalancedIndicator { background-image: url(https://foursouls.com/wp-content/uploads/2022/02/SetIconrb.png); }
+  #OriginSet .competitiveIndicator { background-image: url(https://foursouls.com/wp-content/uploads/2021/11/SetIconcomp.png); }
+  #OriginSet.b .originIndicator { background-image: url(https://foursouls.com/wp-content/uploads/2021/10/SetIconb.png); }
+  #OriginSet.g .originIndicator { background-image: url(https://foursouls.com/wp-content/uploads/2021/10/SetIcong.png); }
+  #OriginSet.fsp .originIndicator { background-image: url(https://foursouls.com/wp-content/uploads/2021/10/SetIconfsp.png); }
+  #OriginSet.r .originIndicator { background-image: url(https://foursouls.com/wp-content/uploads/2021/10/SetIconr.png); }
+  #OriginSet.rwz .originIndicator { background-image: url(https://foursouls.com/wp-content/uploads/2021/10/SetIconrwz.png); }
+  #OriginSet.aa .originIndicator { background-image: url(https://foursouls.com/wp-content/uploads/2021/10/SetIconaa.png); }
+  #OriginSet.b2 .originIndicator { background-image: url(https://foursouls.com/wp-content/uploads/2021/10/SetIconb2.png); }
+  #OriginSet.g2 .originIndicator {background-image: url(https://foursouls.com/wp-content/uploads/2021/10/SetIcong2.png); }
+  #OriginSet.fsp2 .originIndicator { background-image: url(https://foursouls.com/wp-content/uploads/2021/10/SetIconfsp2.png); }
+  #OriginSet.t .originIndicator { background-image: url(https://foursouls.com/wp-content/uploads/2021/10/SetIcont.png); }
+  #OriginSet.gi .originIndicator { background-image: url(https://foursouls.com/wp-content/uploads/2021/10/SetIcongi.png); }
+  #OriginSet.p .originIndicator { background-image: url(https://foursouls.com/wp-content/uploads/2021/10/SetIconp.png); }
+  #OriginSet.tw .originIndicator { background-image: url(https://foursouls.com/wp-content/uploads/2021/10/SetIcontw.png); }
+  #OriginSet.dk .originIndicator { background-image: url(https://foursouls.com/wp-content/uploads/2021/10/SetIcondk.png); }
+  #OriginSet.ret .originIndicator { background-image: url(https://foursouls.com/wp-content/uploads/2022/04/SetIconret.png); }
+  #OriginSet.gf .originIndicator { background-image: url(https://foursouls.com/wp-content/uploads/2022/11/SetIcongf.png); }
+  #OriginSet.bum .originIndicator { background-image: url(https://foursouls.com/wp-content/uploads/2024/01/SetIconbum.png); }
+  #OriginSet.box .originIndicator { background-image: url(https://foursouls.com/wp-content/uploads/2022/04/SetIconbox.png); }
+  #OriginSet.blank .originIndicator { background-image: url(https://foursouls.com/wp-content/uploads/2021/11/SetIconblank.png); }
+  #OriginSet.challenge .originIndicator { background-image: url(https://foursouls.com/wp-content/uploads/2022/04/SetIconchallenge.png); }
+  .footnote {position:relative; background-color:#000; border-color:#FFF; border-radius:10px; margin:50px 0 10px 0; box-sizing:border-box; padding:54px 15px 20px 15px; border:3px solid #FFF; text-align:center;}
+  .ambushFootnote {background-color:#261F26; border-color:#8862A1;}
+  .curseFootnote {background-color:#151111; border-color:#DE0800;}
+  .eternalFootnote {background-color:#CDDEF9; border-color:#3863CD; color:#000;}
+  .guppyFootnote {background-color:#141414; border-color:#CD86A0;}
+  .indomitableFootnote {border-color:#FF4E01;}
+  .trinketFootnote {background-color:#CEDDDC; border-color:#718A9A; color:#000;}
+  .footnote .footnoteIcon {width:100px; height:100px; position:absolute; top:-50px; left: calc(50% - 50px); z-index:1;}
+  .footnote p {margin-top:0px; margin-bottom:0px;}
+  .footnote .footnoteTitle {font-size:120%; margin-bottom:10px;}
+  #StatTable, #EffectTable, #RewardTable {
+  margin:0 auto;
+  font-family:FourSoulsStatBlock, Helvetica, sans-serif;
+  }
+  #StatTable .value, #EffectTable .value, #RewardTable .value {
+  font-size:30px;
+  }
+  .statIcon, .effectModifierIcon, .rewardIcon {
+  width:50px;
+  height:50px;
+  }
+  .effectIcon {
+  width:40px;
+  height:40px;
+  float: left;
+  margin: -5px 5px 3px 0;
+  }
+  .effectOutcome {
+  margin:25px 0 5px 0;
+  clear: both;
+  }
+  #RewardTable .value {
+  text-align:right;
+  }
+  #RewardTable .value .red {
+  color:#F00;
+  }
+  #RewardTable .icon {
+  min-width:60px;
+  }
+  .quoteText {
+  display:block;
+  margin:0 auto;
+  padding:5px;
+  background-color:rgba(0,0,0,0.2);
+  border: solid 2px #000;
+  color: #DDD;
+  border-radius:5px;
+  }
+  #LinkedCards, #AltArtContainer, #RelatedCards {
+  display:flex;
+  font: FourSoulsMain, Helvetica, sans-serif;
+  font-family: FourSoulsMain, Helvetica, sans-serif;
+  text-transform: lowercase;
+  }
+  #CharitemBox, #StandardCardBox, #RemasteredCardBox {
+  flex-grow: 1;
+  }
+  #CharitemBox, #StandardCardBox, #RemasteredCardBox, #AltArtBox {
+  flex-grow: 4;
+  }
+  #LinkedCards .relatedCard {
+  width:auto;
+  text-align:center;
+  flex-grow:1;
+  }
+  #LinkedCards .relatedCard img {
+  max-height:140px;
+  max-width:80%;
+  width:auto;
+  border-radius:7px;
+  clip-path: inset(3.1% round 4%) !important;
+  }
+  #CardTags, #CardTagsContainer ul {display:flex;}
+  h3 {}
+  #CardTagsContainer {flex-grow:1; align-items: stretch;}
+  #CardTagsContainer ul {flex-wrap:wrap; list-style-type:none;}
+  #CardTagsContainer ul li {margin:3px 10px; background-color:#000; padding:3px; border:3px solid #FFF;}
+  #RelatedCards {flex-wrap:wrap;}
+  #RelatedCards .relatedCardTitle {
+  width:100%;
+  order:1;
+  font-size:175%;
+  flex-grow:1;
+  margin-bottom:0;
+  padding-bottom:20px;
+  }
+  #RelatedCards .relatedCard {
+  max-width:16.6%;
+  flex-grow:1;
+  order:3;
+  width:auto;
+  text-align:center;
+  }
+  #RelatedCards .relatedCard img {
+  max-width:90%;
+  height:auto;
+  max-height: 140px;
+  margin:0 auto;
+  border-radius:7px;
+  clip-path: inset(3.1% round 4%) !important;
+  }
+  .inlineIcon {
+  width: 20px;
+  height: 20px;
+  margin: 0 2px -2px 2px;
+  }
+  .KCSignature {
+  display: inline-block;
+  padding: 30px 0 30px 80px;
+  background-image: url(https://foursouls.com/wp-content/uploads/2021/07/kizzycocoaSignature-150x150.png);
+  background-repeat: no-repeat;
+  background-size: 60px 60px;
+  background-position: center left;
+  height:40px;
+  }
+  .StandardTable {border:solid 1px #fff; border-collapse:collapse;}
+  .StandardTable th, .StandardTable td {border:solid 1px #fff; padding:3px 5px;}
+  #card-searchform {display:flex; flex-wrap:wrap;}
+  #card-searchform #cardSearchColumns {display:flex; flex-wrap:wrap;}
+  #card-searchform #cardSearchColumns div {width:31%; padding:0 1%; flex-grow:1;}
+  #card-searchform #cardSearchColumns #Cardsearch_SearchText { width:98%;}
+  #card-searchform #cardSearchColumns label, #card-searchform #cardSearchColumns input, #card-searchform #cardSearchColumns select {width:100%;}
+  #card-searchform #cardSearchColumns input, #card-searchform #cardSearchColumns select {margin:10px 0;}
+  #card-searchform .formButton {margin:10px 20px 10px 0;}
+  #cardSearchButtonColumns {display:flex;}
+  #cardSearchButtonColumns input[type="checkbox"]{
+  -webkit-appearance: initial;
+  appearance: initial;
+  width: 40px;
+  height: 40px;
+  border: none;
+  background-image: url(https://foursouls.com/wp-content/uploads/2022/02/SetIconSort123.png);
+  background-size:40px 40px;
+  display:block;
+  }
+  #cardSearchButtonColumns input[type="checkbox"]:checked {background-image: url(https://foursouls.com/wp-content/uploads/2022/02/SetIconSortABC.png);}
+  #cardSearchButtonColumns input[type="checkbox"]:checked:after {content: " "; display:none;}
+  #cardGrid {display:flex; flex-wrap:wrap;}
+  .cardGridCell { width:24%; text-align:center; margin: 0 auto; position:relative; }
+  .cardGridCell img { max-width:100%; height:auto; border-radius: 8px; clip-path: inset(3.1% round 4%) !important; }
+  .cardGridFlippable {position:relative;}
+  img.cardsearchDiffIcon {position:absolute; left:-5px; top:-3px; width:40px; height:auto; max-width:20%; border-radius:initial; z-index:1;}
+  .cardsearchDiffIcon~.cardsearchDiffIcon {left:33px;}
+  .cardsearchDiffIcon~.cardsearchDiffIcon~.cardsearchDiffIcon {left:71px;}
+  .searchimage-front {transform: rotateY(0deg); backface-visibility: hidden; -webkit-backface-visibility: hidden; transform-style: preserve-3d; -webkit-transform-style: preserve-3d; transition: all 1s ease; z-index:4;}
+  .searchimage-back {position:absolute; left:0; top:0; transform: rotateY(180deg); backface-visibility: hidden; -webkit-backface-visibility: hidden; transform-style: preserve-3d; -webkit-transform-style: preserve-3d; transition: all 1s ease; z-index:1;}
+  .search-flipnote {position:absolute; right:-6px; top:0px; width: 40%; z-index: 5;}
+  .searchimage-front-active {transform: rotateY(180deg); z-index:1;}
+  .searchimage-back-active {transform: rotateY(0deg); z-index:4;}
+  .nf-form-content label {font-size: 180% !important; line-height: normal !important; text-transform:uppercase; Helvetica, sans-serif;}
+  .nf-form-content .checkbox-wrap label {font-size:80% !important;}
+  .nf-form-content legend {font-size: 180%;}
+  .nf-form-content .nf-add-fieldset {font-size: 130%; padding:10px;}
+  .nf-form-content input:not([type="button"]), .nf-form-content textarea:not([type="button"]) {
+  color:#000;
+  }
+  .nf-form-content input::placeholder, .nf-form-content input::-webkit-input-placeholder, .nf-form-content input::-moz-placeholder,
+  .nf-form-content textarea::placeholder, .nf-form-content textarea::-webkit-input-placeholder, .nf-form-content textarea::-moz-placeholder {
+  color: #444;
+  opacity: 1;
+  }
+  .nf-form-content input:-ms-input-placeholder, .nf-form-content textarea:-ms-input-placeholder,
+  .nf-form-content input::-ms-input-placeholder, .nf-form-content textarea::-ms-input-placeholder {
+  color: #444;
+  opacity: 1;
+  }
+  #CardsearchNav .nav-links {text-align:center;margin-top:25px; font-size:150%;}
+  .borderStitchimgTop {position:absolute; top:156px;}
+  .borderStitchimgBottom {position:absolute; bottom:156px; -moz-transform: scaleY(-1); -o-transform: scaleY(-1); -webkit-transform: scaleY(-1); transform: scaleY(-1);}
+  .borderStitchimgLeft {left:14px;}
+  .borderStitchimgRight {right:14px; -moz-transform: scaleX(-1); -o-transform: scaleX(-1); -webkit-transform: scaleX(-1); transform: scaleX(-1);}
+  .borderStitchimgRight.borderStitchimgBottom {-moz-transform: scale(-1, -1); -o-transform: scale(-1, -1); -webkit-transform: scale(-1, -1); transform: scale(-1, -1);}
+  body.error404 .borderStitchimgTop, body.error404 .borderStitchimgBottom {display:none;}
+  #nf-form-2-cont .nf-form-fields-required, #nf-form-2-cont .nf-error-field-errors, #nf-form-5-cont .nf-form-fields-required, #nf-form-5-cont .nf-error-field-errors {
+  display:none;
+  }
+  #nf-form-2-cont nf-fields-wrap, #nf-form-5-cont nf-fields-wrap {
+  display:flex;
+  }
+  #nf-form-2-cont nf-field:nth-child(1), #nf-form-5-cont nf-field:nth-child(1) {
+  width:80%;
+  }
+  #nf-form-2-cont nf-field:nth-child(2), #nf-form-5-cont nf-field:nth-child(2) {
+  width:20%;
+  }
+  #nf-form-2-cont nf-field:nth-child(2) input, #nf-form-5-cont nf-field:nth-child(2) input {
+  width:100%;
+  }
+  #IAMERROR {
+  width:122px;
+  height:122px;
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+  background-image: url(https://foursouls.com/wp-content/uploads/2021/07/404Keeper.png);
+  background-size: 488px 122px;
+  background-position: 0 0;
+  background-repeat:no-repeat;
+  display:block;
+  margin:5px auto;
+  }
+  .animatedFire {
+  width:96px;
+  height:96px;
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+  background-image: url(https://foursouls.com/wp-content/uploads/2021/07/FireSprites.png);
+  background-size: 576px 576px;
+  animation: animatedfire 0.5s steps(5, end) infinite;
+  }
+  @keyframes animatedfire {
+  from { background-position-x: 0; }
+  to { background-position-x: -480px; }
+  }
+  .redFire {
+  background-position-y: -96px;
+  }
+  .blueFire {
+  background-position-y: -192px;
+  }
+  .purpleFire {
+  background-position-y: -288px;
+  }
+  .whiteFire {
+  background-position-y: -384px;
+  }
+  .megaFire {
+  background-position-y: -480px;
+  }
+  .isaacHRcontainer { margin: 10px 0;
+  display:flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  }
+  .isaacHRnorm, .isaacHRani3, .isaacHRani4 {
+  height:78px;
+  width:78px;
+  }
+  .isaacHRnorm {
+  background-image:url(https://foursouls.com/wp-content/uploads/2022/02/hrelements_single.png);
+  background-size: auto;
+  background-size: 780px 468px;
+  }
+  .isaacHRani3 {
+  background-image:url(https://foursouls.com/wp-content/uploads/2022/02/hrelements_ani3_single.png);
+  background-size: 858px 234px;
+  }
+  .isaacHRani4 {
+  background-image:url(https://foursouls.com/wp-content/uploads/2022/02/hrelements_ani4_single.png);
+  background-size: 390px 312px;
+  }
+  .isaacHRdouble {
+  height:78px;
+  width:156px;
+  background-image:url(https://foursouls.com/wp-content/uploads/2022/02/hrelements_double.png);
+  background-size: 156px 156px;
+  }
+  .isaaccol2 {background-position-x: -78px;}
+  .isaaccol3 {background-position-x: -156px;}
+  .isaaccol4 {background-position-x: -234px;}
+  .isaaccol5 {background-position-x: -312px;}
+  .isaaccol6 {background-position-x: -390px;}
+  .isaaccol7 {background-position-x: -468px;}
+  .isaaccol8 {background-position-x: -546px;}
+  .isaaccol9 {background-position-x: -624px;}
+  .isaaccol10 {background-position-x: -702px;}
+  .isaaccol11 {background-position-x: -780px;}
+  @keyframes HRgenani3 {
+  from { background-position-y: 0; }
+  to { background-position-y: -234px; }
+  }
+  .isaacHRani3.isaaccol7, .isaacHRani3.isaaccol8, .isaacHRani3.isaaccol9, .isaacHRani3.isaaccol10, .isaacHRani3.isaaccol11 {
+  animation: HRgenani3 0.3s steps(3, end) infinite;
+  }
+  @keyframes HRgleamani3 {
+  0% { background-position-y: 0; }
+  90% { background-position-y: 0; }
+  95% { background-position-y: -234px; }
+  100% { background-position-y: 0; }
+  }
+  .isaacHRani3.isaaccol1, .isaacHRani3.isaaccol2 {
+  animation: HRgleamani3 10s steps(3, end) infinite;
+  }
+  @keyframes HRglowani3 {
+  0% { background-position-y: 0; }
+  68% { background-position-y: 0; }
+  70% { background-position-y: -156px; }
+  98% { background-position-y: -156px; }
+  100% { background-position-y: 0; }
+  }
+  .isaacHRani3.isaaccol4, .isaacHRani3.isaaccol6 {
+  animation: HRglowani3 15s steps(2, end) infinite;
+  }
+  @keyframes HRstareani3 {
+  0% { background-position-y: 0; }
+  40% { background-position-y: 0; }
+  43% { background-position-y: -156px; }
+  73% { background-position-y: -156px; }
+  75% { background-position-y: 0; }
+  77% { background-position-y: -156px; }
+  97% { background-position-y: -156px; }
+  100% { background-position-y: 0; }
+  }
+  .isaacHRani3.isaaccol3 {
+  animation: HRstareani3 25s steps(2, end) infinite;
+  }
+  @keyframes HRtwitchani3 {	0% { background-position-y: 0; }
+  70% { background-position-y: 0; }
+  71% { background-position-y: -78px; }
+  72% { background-position-y: -156px; }
+  75% { background-position-y: -156px; }
+  76% { background-position-y: -78px; }
+  77% { background-position-y: -156px; }
+  98% { background-position-y: -156px; }
+  99% { background-position-y: -78px; }
+  100% { background-position-y: 0; }
+  }
+  .isaacHRani3.isaaccol5 {
+  animation: HRtwitchani3 20s steps(1, end) infinite;
+  }
+  @keyframes HRgenani4 {
+  from { background-position-y: 0; }
+  to { background-position-y: -312px; }
+  }
+  .isaacHRani4.isaaccol2 {
+  animation: HRgenani4 0.4s steps(4, end) infinite;
+  }
+  @keyframes HRgleamani4 {
+  0% { background-position-y: 0; }
+  95% { background-position-y: 0; }
+  100% { background-position-y: -312px; }
+  }
+  .isaacHRani4.isaaccol1, .isaacHRani4.isaaccol4, .isaacHRani4.isaaccol5 {
+  animation: HRgleamani4 10s steps(4, end) infinite;
+  }
+  @keyframes HRglowani4 {
+  0% { background-position-y: 0; }
+  68% { background-position-y: 0; }
+  70% { background-position-y: -234px; }
+  98% { background-position-y: -234px; }
+  100% { background-position-y: 0; }
+  }
+  .isaacHRani4.isaaccol3 {
+  animation: HRglowani4 15s steps(3, end) infinite;
+  }
+  footer.container {
+  width:100%;
+  }
+  #menu-footer-menu {
+  display:flex;
+  text-transform:uppercase;
+  padding:0;
+  width:100%;
+  justify-content:space-between;
+  font: FourSoulsMain, Helvetica, sans-serif;
+  font-family: FourSoulsMain, Helvetica, sans-serif;
+  }
+  #menu-footer-menu li {
+  display:block;
+  text-align:center;
+  position:relative;
+  font-size:18px;
+  line-height:20px;
+  padding:0 10px;
+  image-rendering: initial;
+  }
+  #menu-footer-menu li:first-child {
+  margin-left: -20px;
+  }
+  #menu-footer-menu li::before {
+  display:block;
+  width:50px;
+  height:50px;
+  content: "";
+  margin: 0 auto;
+  background-repeat:no-repeat;
+  background-size:50px 50px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  pointer-events:none;
+  }
+  #menu-footer-menu li.home::before {
+  background-image:url(https://foursouls.com/wp-content/uploads/2022/02/FooterHomeIcon.png);
+  }
+  #menu-footer-menu li.sitemap::before {
+  background-image:url(https://foursouls.com/wp-content/uploads/2022/02/FooterSitemapIcon.png);
+  }
+  #menu-footer-menu li.cookiepolicy::before {
+  background-image:url(https://foursouls.com/wp-content/uploads/2022/02/FooterCookiesIcon.png);
+  }
+  #menu-footer-menu li.accessibility::before {
+  background-image:url(https://foursouls.com/wp-content/uploads/2022/02/FooterAccessibilityIcon.png);
+  }
+  #menu-footer-menu li.hide {
+  display:none;
+  }
+  #menu-footer-menu li a {
+  display: block;
+  height:20px;
+  width: 100%;
+  padding-top: 55px;
+  text-decoration:none;
+  }
+  #menu-footer-menu li a:link {color:#FFF;} #menu-footer-menu li a:visited {color:#FFF;} #menu-footer-menu li a:hover {color:#EEE; text-shadow:0px 0px 1px #FFF;} #menu-footer-menu li a:active {color:#FFF; text-shadow:0px 0px 1px #FFF;} #SitemapPageList .page-item-9, #SitemapPageList .page-item-13, #SitemapPageList .page-item-14,
+  #SitemapPageList .page-item-17, #SitemapPageList .page-item-25, #SitemapPageList .page-item-27, #SitemapPageList .page-item-138 {
+  list-style: none;
+  font-size: 200%;
+  margin: 10px 0;
+  }
+  .single-rules .wp-block-group {
+  border:solid thick #30221d;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #ceb4a3;
+  color: #000;
+  font-family: Roboto;
+  margin: 50px 10px;
+  position:relative;
+  }
+  .single-rules .wp-block-group .wp-block-group__inner-container h2:first-of-type {
+  margin: 0;
+  font-family: 'Permanent Marker', cursive;
+  color: #FFF;
+  text-shadow:
+  -1px -1px 0 #000,
+  0   -1px 0 #000,
+  1px -1px 0 #000,
+  1px  0   0 #000,
+  1px  1px 0 #000,
+  0    1px 0 #000,
+  -1px  1px 0 #000,
+  -1px  0   0 #000;
+  position: absolute;
+  left: -10px;
+  top: -25px;
+  background-image:url(https://foursouls.com/wp-content/uploads/2023/01/streak_cleaned.png);
+  padding: 0 12px 3px 6px;
+  background-repeat: no-repeat;
+  background-position: bottom right;
+  background-size: 100% 20px;
+  }
+  .single-rules .wp-block-group.contentsBox .wp-block-columns { gap:0; }
+  .single-rules .wp-block-group.contentsBox .wp-block-column { border-right:solid #000 2px; padding:20px; }
+  .single-rules .wp-block-group.contentsBox .wp-block-column:last-child { border-right:none; }
+  .single-rules .wp-block-group a { color: #000; text-decoration: none; }
+  .single-rules .wp-block-group a:hover { color: #000; text-decoration: underline; }
+  .ruleCardFloat img {border-radius: 8px; clip-path: inset(3.1% round 4%) !important;}
+  #RuleColumns {display:flex; flex-wrap:wrap; align-items:stretch;}
+  #RuleColumns .faqSection {width: 48%; margin: 0 1%; flex-grow: 1;}
+  #RuleColumns .faqTitle {border:3px solid #DDD; background-color:#444; margin-bottom:15px;}
+  #RuleColumns .faqTitle h3 {margin:0;}
+  #RuleColumns .faqTitle h4 {margin:0;}
+  #RuleColumns .faqTitle h3 a {padding:10px; width:100%; box-sizing:border-box; display:block; cursor: pointer;}
+  #RuleColumns .faqTitle h4 a {padding:10px; width:100%; box-sizing:border-box; display:block; cursor: pointer;}
+  #RuleColumns .faqTitle .faqBody {padding:0 0 0 0; font-size:0px; line-height:0px; transition: all 0.5s;}
+  #RuleColumns .faqTitle .faqBody.expanded {padding:0 10px 10px 10px; font-size:16px; line-height:16px;}
+  .ruleNav {
+  padding:1% 2% 2% 2%;
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  display:block;
+  text-align:center;
+  }
+  a.ruleNav:link {color:#000; text-decoration:none;} a.ruleNav:visited {color:#000; text-decoration:none;} a.ruleNav:hover {color:#222;} a.ruleNav:active {color:#444;} .ruleNav span {
+  font-size:150%;
+  text-transform:uppercase;
+  }
+  .rulePreviousLink {
+  background-image:url(https://foursouls.com/wp-content/uploads/2021/07/PreviousLabel.png);
+  float:left;
+  clear: right;
+  }
+  .ruleNextLink {
+  background-image:url(https://foursouls.com/wp-content/uploads/2021/07/NextLabel.png);
+  float:right;
+  }
+  #Deckbuilder_Decks {display:flex; flex-wrap:wrap;}
+  #Deckbuilder_Decks .deckbuilder_singleDeck {width:33%; flex-grow:1; position:relative;}
+  #Deckbuilder_Decks .deckbuilder_singleDeck input {width:100%; height:80px; box-sizing: border-box; margin: 0; opacity:0; cursor: pointer;}
+  #Deckbuilder_Decks .deckbuilder_singleDeck img {position:absolute; height:80px; margin:0 auto; top: 0; left: 0; right: 0; text-align: center; pointer-events: none; opacity:0.6;}
+  #Deckbuilder_Decks .deckbuilder_singleDeck input:checked + img {opacity:1; background-image: url(https://foursouls.com/wp-content/uploads/2021/07/ItemSunbeams-150x150.png); background-size: 80px 80px; background-repeat:no-repeat;}
+  #Deckbuilder_Decks .deckbuilder_singleDeck label {text-align:center; display: block; padding:10px 0; cursor: pointer;}
+  #Deckbuilder_Decks hr {width:100%; flex-grow:1;}
+  #Deckbuilder_Decks h3 {width:100%; flex-grow:1; position:relative; text-align: center;}
+  #DeckbuilderColumns, #Deckbuilder_Ratio_Values, #Deckbuilder_HouseRules, #PlayerRules {
+  display:flex;
+  flex-wrap:wrap;
+  }
+  .DeckbuilderColumn {
+  width:48%; padding:0 1%;
+  }
+  #Deckbuilder_Ratio_Values h3 {
+  width:100%;
+  }
+  #Deckbuilder_Ratio_Values label, #Deckbuilder_HouseRules label, #PlayerRules label {
+  width:60%; margin:3px 0;
+  }
+  #Deckbuilder_Ratio_Values input, #Deckbuilder_HouseRules input, #PlayerRules input {
+  width:40%; box-sizing: border-box; flex-grow:1; margin:3px 0;
+  }
+  #Deckbuilder_FanmadeDecksShow {
+  display:none;
+  }
+  #Deckbuildersubmit {
+  width:30%; margin:15px 35% 0 35%;
+  }
+  .flexPageRearrange {display:flex; flex-wrap:wrap;}
+  .section1 {order:1; width:100%;}
+  .section2 {order:2; width:100%;}
+  #PlayerRules {
+  display:none;
+  }
+  .fakeCard {
+  width: 107px;
+  height: 150px;
+  background-color: #000;
+  border-radius: 5px;
+  padding: 10px;
+  box-sizing: border-box;
+  margin: 5px auto 5px auto;
+  font-size: 120%;
+  border: 4px solid #F00;
+  }
+  .accessibilityColumns {
+  display:flex;
+  flex-wrap:wrap;
+  }
+  .accessibilityOption {
+  width:45%;
+  flex-grow:1;
+  }
+  .accessibilityOption label {
+  clear: both;
+  display: block;
+  font-size: 160%;
+  margin: 0 10px 10px 10px;
+  text-align: center;
+  text-transform: uppercase;
+  }
+  .accessibilityOption select {
+  font-size:140%;
+  width:90%;
+  margin:0 auto 30px auto;
+  display: block;
+  }
+  .accessibilityColumns button {
+  font-size:180%;
+  margin:5px 25%;
+  width:45%;
+  flex-grow:1;
+  display: block;
+  padding:10px;
+  }@media only screen and (max-width: 1024px) {
+  body {
+  font-size:24px;
+  }
+  .container {
+  width: 100%;
+  }
+  .blogSignatureText h4 {margin:15px 0;}
+  #menu-main-menu li::after {
+  display:none;
+  }
+  #page-content .aboutUsColumns {flex-wrap:wrap !important;}
+  #page-content .aboutUsColumns .wp-block-column {flex-basis:100% !important; margin-left:0;}
+  #page-content {
+  margin-bottom:0;
+  padding: 50px 128px 144px 128px;
+  }
+  .CardExpansionIconSection {
+  width:20%;
+  }
+  .CardTypeIconSection h3, .CardExpansionIconSection h3 {
+  font-size: 100%;
+  }
+  .CardTypeIconSection span, .CardExpansionIconSection span {
+  font-size: 120%;
+  }
+  .CardTypeIconSection {
+  width: 25%;
+  }
+  .CardTypeIconSection .CardTypeHover img {transform: none !important;}
+  .CardTypeIconSection .CardTypeHover {margin:0 auto !important;}
+  .AdditionalCardSection {flex-wrap:wrap;}
+  .CardOtherSection, .CardOlderSection {width:100%;}
+  #RuleVideo {
+  float:none !important;
+  margin:5px auto;
+  }
+  #FancardNoticeImage {
+  display:none;
+  }
+  #FancardNoticeText {
+  width:69%;
+  padding-left:5%;
+  }
+  #FancardNoticeCards {
+  flex-wrap:wrap;
+  width:23%;
+  }
+  #FancardNoticeCards .FancardNoticeCardContainer {
+  width:100%;
+  }
+  #FancardNoticeCards .FancardNoticeCardContainer:nth-child(1) {
+  margin-top: 20px;
+  margin-bottom: 5px;
+  }
+  #FancardNoticeCards .FancardNoticeCardContainer:nth-child(2) {
+  margin-top: 5px;
+  margin-bottom: 20px;
+  }
+  #FancardNoticeCards .FancardNoticeCardContainer:nth-child(3) {
+  display:none;
+  }
+  #menu-footer-menu li {
+  font-size:20px;
+  line-height: 30px;
+  }
+  #menu-footer-menu li a {
+  padding-top: 60px;
+  height: 60px;
+  }
+  #menu-footer-menu li::before {
+  width:120px;
+  height:60px;
+  background-size: 60px 60px;
+  background-position:top center;
+  }
+  .DeckbuilderColumn {
+  width:98%;
+  }
+  #card-searchform #cardSearchColumns div {
+  width:48% !important;
+  padding:0 1% !important;
+  }
+  #searchsubmit, #card-searchform #cardSearchColumns input, #card-searchform #cardSearchColumns select {
+  font-size:100%;
+  }
+  .cardGridCell {
+  width:25%;
+  }
+  .fakeCard, .fakeRoomCard {
+  font-size: 80%;
+  }
+  #RelatedCards .relatedCard {
+  width:33%;
+  order: 2;
+  max-width:initial;
+  }
+  #HomeContent {
+  display:flex;
+  flex-wrap:wrap;
+  }
+  #HomeContent > * {
+  order:1;
+  width:100%;
+  }
+  #HomeContent #HomeSidebar {
+  order:999;
+  float:none;
+  margin:190px 0 0 0;
+  }
+  .AboutImageLeft {flex-basis:50% !important;}
+  .AboutTextLeft {flex-basis:50% !important;}
+  .AboutImageRight {flex-basis:50% !important;}
+  .AboutTextRight {flex-basis:50% !important;}
+  }
+  @media only screen and (max-width: 960px) {
+  #page-content {
+  background-color:#000;
+  margin-top: 340px;
+  overflow: initial;
+  padding: 90px 128px 144px 128px;
+  }
+  #page-content .menu-main-menu-container {
+  position: absolute;
+  top: -300px;
+  left: 0;
+  width: 100%;
+  box-shadow: 0 -10px 20px 0px #000;
+  }
+  #menu-main-menu {
+  display:block;
+  margin-top:0;
+  margin-bottom:0;
+  }
+  #menu-main-menu li::before {
+  display:none;
+  }
+  #menu-main-menu li {
+  display:block;
+  box-shadow: inset 0 0 30px #000;
+  }
+  #menu-main-menu li a {
+  position:initial;
+  height:50px;
+  padding:10px;
+  font-size:22px;
+  line-height:30px;
+  border: solid 2px #000;
+  box-sizing: border-box;
+  }
+  #menu-main-menu li.goldchest {
+  background-color: #F4AB02;
+  }
+  #menu-main-menu li.woodchest {
+  background-color: #866048;
+  }
+  #menu-main-menu li.slotmachine {
+  background-color: #924A4A;
+  }
+  #menu-main-menu li.redchest {
+  background-color: #6D1D1D;
+  }
+  #menu-main-menu li.dirtychest {
+  background-color: #473E37;
+  }
+  #menu-main-menu li.holychest {
+  background-color: #7C9BB4;
+  }
+  #menu-main-menu li.goldchest:hover {
+  background-color: #775201;
+  }
+  #menu-main-menu li.woodchest:hover {
+  background-color: #422F23;
+  }
+  #menu-main-menu li.slotmachine:hover {
+  background-color: #472424;
+  }
+  #menu-main-menu li.redchest:hover {
+  background-color: #350E0E;
+  }
+  #menu-main-menu li.dirtychest:hover {
+  background-color: #211D19;
+  }
+  #menu-main-menu li.holychest:hover {
+  background-color: #3D4D59;
+  }
+  .CardTypeIconSection {
+  width:33%;
+  }
+  .CardExpansionIconSection {
+  width:33%;
+  }
+  #card-searchform #cardSearchColumns div {
+  width:98% !important;
+  }
+  #FancardNotice {
+  padding: 6% 2% 20% 2%;
+  }
+  #FancardNoticeText {
+  width:59%;
+  }
+  #FancardNoticeCards {
+  width:33%;
+  }
+  .ruleNav {
+  float:none;
+  width:80%;
+  padding: 1% 10% 4% 10%;
+  margin:15px 0;
+  }
+  #CardDisplay {
+  flex-wrap:wrap;
+  }
+  #CardLeft {
+  order:1;
+  width:48%;
+  padding:0 1%;
+  }
+  #CardInfo {
+  order:3;
+  width:96%;
+  }
+  #CardRight {
+  order:2;
+  width:48%;
+  padding:0 1%;
+  }
+  main.supersized #CardLeft, main.supersized #CardRight {
+  width: 98%;
+  }
+  main.supersized #StatTable {
+  float: none;
+  width: 100%;
+  }
+  main.supersized #StatTable td {
+  width: 50%;
+  }
+  #page-content .AboutImageLeft, #page-content .AboutImageRight {
+  order:1;
+  flex-basis:100% !important;
+  margin-left:0; margin-right:0;
+  }
+  #page-content .AboutImageLeft img, #page-content .AboutImageRight img {
+  margin: 0 auto;
+  display: block;
+  width:300px;
+  height:auto;
+  max-width:90%;
+  }
+  #page-content .AboutTextLeft, #page-content .AboutTextRight {
+  order:2;
+  flex-basis:100% !important;
+  margin-left:0; margin-right:0;
+  }
+  .newsDate {
+  margin-top: 15px;
+  }
+  }
+  @media only screen and (max-width: 640px) {
+  .home header #LogoImgLink {
+  width:80%;
+  padding:0 10%;
+  height:auto;
+  }
+  .home header #LogoImg {
+  width:100%;
+  height:auto;
+  }
+  #page-content {
+  padding: 90px 20px 144px 20px;
+  border-image-width: 156px 0px;
+  }
+  #page-content img.borderStitchimgTop, #page-content img.borderStitchimgBottom {
+  display:none;
+  }
+  body {
+  font-size:18px;
+  }
+  #planetariumThemeToggle {
+  left:0;
+  }
+  #Deckbuilder_Decks .deckbuilder_singleDeck {width:49%;}
+  #menu-footer-menu li::before {
+  display:none;
+  }
+  #menu-footer-menu {
+  display:block;
+  }
+  #menu-footer-menu li, #menu-footer-menu li:first-child {
+  text-align: left;
+  display:list-item;
+  margin-left:24px;
+  clear:both;
+  padding-left:0;
+  }
+  #menu-footer-menu li a {
+  position: initial;
+  padding-top: 5px;
+  height:auto;
+  width:auto;
+  display:initial;
+  }
+  .CardTypeIconSection, .CardExpansionIconSection {
+  width:50%;
+  }
+  .cardGridCell {
+  width:50%;
+  }
+  .fakeCard, .fakeRoomCard {
+  font-size: 100%;
+  }
+  #RelatedCards .relatedCard {
+  width:50%;
+  }
+  #RuleColumns .faqSection {width: 98%; margin: 0 1%;}
+  #RuleColumns .faqTitle .faqBody.expanded {font-size:24px; line-height:24px;}
+  }
+  @media only screen and (max-width: 360px) {
+  .home header #LogoImgLink, header #LogoImgLink {
+  width:70%;
+  padding:0 30% 0 0;
+  height:auto;
+  }
+  .home header #LogoImg, header #LogoImg {
+  width:100%;
+  height:auto;
+  }
+  h1 {
+  font-size: 200%;
+  }
+  } body.accanibackground {animation:none;}
+  body.acccontrastmode #page-content {border-image-source: url(https://foursouls.com/wp-content/uploads/2022/02/FourSoulsPageBorderV5_HC.png);}
+  body.acccontrastmode #HomeSidebar {border: 5px solid #fff; padding: 0.5%; color:#FFF;}
+  body.acccontrastmode #HomeSidebar .textwidget {background-color:#000;}
+  body.acccontrastmode #HomeSidebar .textwidget img {filter: brightness(10000%);}
+  body.acccontrastmode a[role="link"], body.acccontrastmode a:link, body.acccontrastmode a:visited, body.acccontrastmode a:hover, body.acccontrastmode a:active {color:#FFF !important;}
+  body.acccontrastmode .footnote {background-color:#000 !important; color:#FFF !important;}
+  body.accfonttype {font: 18px Arial, Helvetica, sans-serif; font-family:Arial, Helvetica, sans-serif;}
+  body.accfonttype #StatTable, body.accfonttype #EffectTable, body.accfonttype #RewardTable {font-family:Arial, Helvetica, sans-serif;}
+  body.accfonttype.postid-7374 h1, body.accfonttype.postid-8417 h1, body.accfonttype.postid-8419 h1, body.accfonttype.postid-9135 h1 {
+  font-family:Arial, Helvetica, sans-serif;
+  font-size: 250%;
+  }
+  body.acctextsizedouble {}
+  body.acctextsizequadruple {}
+
+  html :where(.has-border-color){
+    border-style:solid;
+    }
+    html :where([style*=border-top-color]){
+    border-top-style:solid;
+    }
+    html :where([style*=border-right-color]){
+    border-right-style:solid;
+    }
+    html :where([style*=border-bottom-color]){
+    border-bottom-style:solid;
+    }
+    html :where([style*=border-left-color]){
+    border-left-style:solid;
+    }
+    html :where([style*=border-width]){
+    border-style:solid;
+    }
+    html :where([style*=border-top-width]){
+    border-top-style:solid;
+    }
+    html :where([style*=border-right-width]){
+    border-right-style:solid;
+    }
+    html :where([style*=border-bottom-width]){
+    border-bottom-style:solid;
+    }
+    html :where([style*=border-left-width]){
+    border-left-style:solid;
+    }
+    html :where(img[class*=wp-image-]){
+    height:auto;
+    max-width:100%;
+    }
+    :where(figure){
+    margin:0 0 1em;
+    }
+    html :where(.is-position-sticky){
+    --wp-admin--admin-bar--position-offset:var(--wp-admin--admin-bar--height, 0px);
+    }
+    @media screen and (max-width:600px){
+    html :where(.is-position-sticky){
+    --wp-admin--admin-bar--position-offset:0px;
+    }
+    }
+
