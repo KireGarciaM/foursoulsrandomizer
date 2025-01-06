@@ -87,13 +87,11 @@ function getCardStatus() {
 }
 
 async function randcard(){
-  //place randomize code here.
   var max = 5; 
   var count = 1;
 
   try {
     const response = await fetch('/cardapi');
-    //const eternalResponse = await fetch('/eternalapi');
     if (!response.ok) throw new Error('Failed to fetch users');
     
     const charCards = await response.json();
@@ -104,27 +102,30 @@ async function randcard(){
 
     var randChars = [];
     var randVector = [];
-// todo remove dupes and reroll
-
+    var randKeys= [];
     do{
+      
       var rn = Math.floor(Math.random() * charCards.length) + 0;
       if(count == 0){
         randVector.push(rn);
+        randKeys.push(charCards.at(rn).id);
         count++;
       } else{
-        if(!randVector.includes(rn)){
+        if(!randVector.includes(rn) && !randKeys.includes(charCards.at(rn).id)){
           randVector.push(rn);
+          randKeys.push(charCards.at(rn).id);
           count++;
         }
       }
     } while(count <= max);
   
     randVector.sort((a, b) => a - b);
-    console.log('RANDCards:', randVector);
+    console.log('RANDVector:', randVector);
+    console.log('RandKeys:', randKeys);
     for(let i = 0; i < randVector.length; i++){
       randChars.push(charCards.at(randVector.at(i)))
     }
-    console.log('RANDCards:', randChars);
+    console.log('RANDChars:', randChars);
 
     max--;
 
@@ -133,7 +134,6 @@ async function randcard(){
       eternArray.push(randChars.at(i).eternal_name);
     }
 
-    //const myJSON = JSON.stringify(eternArray); 
     var eternals = [];
 
     try{
@@ -155,6 +155,7 @@ async function randcard(){
     randChars.forEach(randChar => {
       var set;
       //card_counter++;
+
       const div = document.createElement('div');
       const div_et = document.createElement('div');
       const div_third = document.createElement('div');
@@ -170,21 +171,15 @@ async function randcard(){
       const imgElement_third = document.createElement('img');
       const imgElement_fourth = document.createElement('img');
 
-      //sssssssssssssssssssssssssssssssssssssssssssssssssssssss
-
-      //eternArray.push(randChars.eternal_name);
-
       
 
-      //li.textContent = `${card.name} | ${card.franch} | ${card.eternal_name} | ${card.id} `;
-      a.innerHTML = randChar.rname; //+ ' from ' + card.franch + '. Starting Item = ' + card.eternal_name + '. ID:' + card.id;
+      a.innerHTML = randChar.rname;
       a_et.innerHTML = eternals.at(i).real_name;
       a_third.innerHTML = 'blank';
       a_fourth.innerHTML = 'blank';
       
       set = randChar.set;
 
-      
       const imgUrl = 'https://storage.googleapis.com/fs_char/char/' + set +  '/' + randChar.name +'.png';
       var imgUrl_et = '';
       var imgUrl_third = '';
@@ -196,16 +191,29 @@ async function randcard(){
           imgUrl_third = 'https://storage.googleapis.com/fs_char/cardback/treasure_deck.png';
           imgUrl_fourth = 'https://storage.googleapis.com/fs_char/cardback/treasure_deck.png';
           break;
+        case 'eden_2':
+          imgUrl_et = 'https://storage.googleapis.com/fs_char/cardback/treasure_deck.png';
+          imgUrl_third = 'https://storage.googleapis.com/fs_char/cardback/treasure_deck.png';
+          imgUrl_fourth = 'https://storage.googleapis.com/fs_char/cardback/treasure_deck.png';
+          break;
         case 'level_one_isaac':
           imgUrl_et = 'https://storage.googleapis.com/fs_char/cardback/loot_deck.png';
           imgUrl_third = 'https://storage.googleapis.com/fs_char/cardback/loot_deck.png';
-          imgUrl_fourth = 'https://storage.googleapis.com/fs_char/cardback/loot_deck.png';
+          imgUrl_fourth = 'https://storage.googleapis.com/fs_char/cardback/blank.png';
           break;
         default:
           imgUrl_et = 'https://storage.googleapis.com/fs_char/eternals/' + randChar.eternal_name +'.png';
           imgUrl_third = 'https://storage.googleapis.com/fs_char/cardback/blank.png';
           imgUrl_fourth = 'https://storage.googleapis.com/fs_char/cardback/blank.png';
-      } 
+      }
+
+      if(eternals.at(i).flip != 'null'){
+        imgUrl_third = 'https://storage.googleapis.com/fs_char/eternals/' + eternals.at(i).flip +'.png';
+        const et_name_parts = eternals.at(i).real_name.split('/');
+        a_et.innerHTML = et_name_parts[0];
+        a_third.innerHTML = et_name_parts[1];
+
+      }
       
       imgElement.src = imgUrl;
       imgElement.classList.add('aligncenter');
