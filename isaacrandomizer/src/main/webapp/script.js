@@ -15,99 +15,251 @@
 /**
  * Adds a random greeting to the page.
  */
-function addRandomGreeting() {
-  const greetings =
-      ['Hello There', 'My favorite food is Pizza!'];
-
-  // Pick a random greeting.
-  const greeting = greetings[Math.floor(Math.random() * greetings.length)];
-
-  // Add it to the page.
-  const greetingContainer = document.getElementById('greeting-container');
-  greetingContainer.innerHTML = "<p style=\"color:white\"> " + greeting + "</p>";
-}
-
-async function getMessage() {
-  const response = await fetch('/comments');
-  const quote = await response.json();
-  const json = JSON.stringify(quote)
-  document.getElementById('data-container').innerHTML = json +"<br>";
-}
-
-function loadComments() {
-  fetch('/list-comments').then(response => response.json()).then((commentlist) => {
-    const commentListElement = document.getElementById('comment-list');
-    commentlist.forEach((commentcontainer) => {
-      commentListElement.appendChild(createCommentElement(commentcontainer));
-    })
-  });
-}
-
-/** Creates an element that represents a task, including its delete button. */
-function createCommentElement(commentcontainer) {
-  const squareElement = document.createElement('li');
-  squareElement.className = 'comment';
-
-  const commentElement = document.createElement('span');
-  commentElement.innerHTML= "<h4>"+commentcontainer.name + ' '+commentcontainer.lastname + "</h4>";
-  commentElement.innerHTML =commentElement.innerHTML + commentcontainer.comment +"<br>";
-  commentElement.innerHTML =commentElement.innerHTML + "<a href=\"" + commentcontainer.image + "\" />";
-  commentElement.innerHTML =commentElement.innerHTML + "<img src=\"" + commentcontainer.image + "\" />";
-  commentElement.innerHTML =commentElement.innerHTML + "</a>";
+function randomizeImage() {
+  // The images directory contains 13 images, so generate a random index between
+  // 1 and 13.
+  const imageIndex = Math.floor(Math.random() * 4) + 1;
   
-  const deleteButtonElement = document.createElement('button');
-  deleteButtonElement.innerText = 'Delete';
-  deleteButtonElement.addEventListener('click', () => {
-    deleteComment(commentcontainer);
+  var set;
 
-    // Remove the task from the DOM.
-    squareElement.remove();
+  if(imageIndex == 1){
+    set = 'halo';
+  } else if (imageIndex == 2) {
+    set = 'knight';
+  } else if (imageIndex == 3) {
+    set = 'pkmn';
+  } else {
+    set = 'tes';
+  }
+
+  const imgUrl = '/resources/images/foursoulsets/set_' + set + '.png';
+
+  const imgElement = document.createElement('img');
+  //imgElement.classList.add("g2icon lazyloaded");
+  imgElement.src = imgUrl;
+
+  const imageContainer = document.getElementById('random-image-container');
+  // Remove the previous image.
+  imageContainer.innerHTML = '';
+  imageContainer.appendChild(imgElement);
+}
+
+function getCardStatus() {
+
+  // Fetches json from userapi servlet and uses to set the login
+  // and logout links for the front end.
+  fetch('/cardapi').then(response => response.json()).then(cards => {
+      var card_counter = 0;
+      const cardList = document.getElementById('cardGrid');
+      console.log('Cards:', cards);
+                cards.forEach(card => {
+                    var set;
+                    card_counter++;
+                    const div = document.createElement('div');
+                    const a = document.createElement('a');
+                    const imgElement = document.createElement('img');
+                    //li.textContent = `${card.name} | ${card.franch} | ${card.eternal_name} | ${card.id} `;
+                    a.innerHTML = card.rname; //+ ' from ' + card.franch + '. Starting Item = ' + card.eternal_name + '. ID:' + card.id;
+                    
+                    
+                    set = card.set;
+
+                    
+                    const imgUrl = 'https://storage.googleapis.com/fs_char/char/' + set +  '/' + card.name +'.png';
+                
+                    
+                    imgElement.src = imgUrl;
+                    imgElement.classList.add('aligncenter');
+                    imgElement.classList.add('wp-post-image');
+                    imgElement.classList.add('ls-is-cached');
+                    imgElement.classList.add('lazyloaded');
+
+                    div.classList.add('cardGridCell');
+
+                    a.appendChild(imgElement);
+                    div.appendChild(a);
+                    cardList.appendChild(div);
+                });
+      const link = document.getElementById("card_num_res");
+      const cardMessage = card_counter + " Cards Have Been Found";
+      link.innerHTML = cardMessage;
   });
-
-  squareElement.appendChild(commentElement);
-  squareElement.appendChild(deleteButtonElement);
-  return squareElement;
 }
 
-function deleteComment(commentcontainer) {
-  const params = new URLSearchParams();
-  params.append('id', commentcontainer.id);
-  fetch('/delete-comments', {method: 'POST', body: params});
-}
+async function randcard(){
+  //place randomize code here.
+  var max = 5; 
+  var count = 1;
 
-/** Creates a map and adds it to the page. */
-function createMap() {
+  try {
+    const response = await fetch('/cardapi');
+    //const eternalResponse = await fetch('/eternalapi');
+    if (!response.ok) throw new Error('Failed to fetch users');
+    
+    const charCards = await response.json();
+    console.log('Cards:', charCards);
 
-  var myLatLng = {lat: 33.882931, lng: -117.8865506};
+    const cardList = document.getElementById('cardGrid');
+    cardList.innerHTML = ''; 
+
+    var randChars = [];
+    var randVector = [];
+// todo remove dupes and reroll
+
+    do{
+      var rn = Math.floor(Math.random() * charCards.length) + 0;
+      if(count == 0){
+        randVector.push(rn);
+        count++;
+      } else{
+        if(!randVector.includes(rn)){
+          randVector.push(rn);
+          count++;
+        }
+      }
+    } while(count <= max);
   
-  const map = new google.maps.Map(
-      document.getElementById('map'),
-      {center: myLatLng, 
-      zoom: 16,
-      mapTypeId: "satellite"
-    });
+    randVector.sort((a, b) => a - b);
+    console.log('RANDCards:', randVector);
+    for(let i = 0; i < randVector.length; i++){
+      randChars.push(charCards.at(randVector.at(i)))
+    }
+    console.log('RANDCards:', randChars);
 
-  var marker = new google.maps.Marker({
-    position: myLatLng,
-    map: map,
-    title: 'CSUF!',
-    icon: '/images/fullymarker.png'
-  });
-}
+    max--;
 
-function onload(){
-    loadComments();
-    fetchcomments();
-}
+    var eternArray = [];
+    for(let i = 0; i < randChars.length; i++){
+      eternArray.push(randChars.at(i).eternal_name);
+    }
 
-function fetchcomments(){
-    fetch('/comments')
-      .then((response) => {
-        return response.text();
-        //return response.redirect();
-      })
-      .then((imageUploadUrl) => {
-        const messageForm = document.getElementById('form1');
-        messageForm.action = imageUploadUrl;
+    //const myJSON = JSON.stringify(eternArray); 
+    var eternals = [];
+
+    try{
+        et_resp = await fetch('/eternalapi', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(eternArray) // Send names as a JSON array
       });
+      console.log('eternArray:', eternArray);
+      if (!et_resp.ok) throw new Error('Failed to query users');
+      eternals = await et_resp.json();
+      console.log('Queried Users:', eternals);
+
+    } catch (error) {
+      console.error('Error:', error);
+    }
+
+    let i = 0;
+    randChars.forEach(randChar => {
+      var set;
+      //card_counter++;
+      const div = document.createElement('div');
+      const div_et = document.createElement('div');
+      const div_third = document.createElement('div');
+      const div_fourth = document.createElement('div');
+
+      const a = document.createElement('a');
+      const a_et = document.createElement('a');
+      const a_third = document.createElement('a');
+      const a_fourth = document.createElement('a');
+
+      const imgElement = document.createElement('img');
+      const imgElement_et = document.createElement('img');
+      const imgElement_third = document.createElement('img');
+      const imgElement_fourth = document.createElement('img');
+
+      //sssssssssssssssssssssssssssssssssssssssssssssssssssssss
+
+      //eternArray.push(randChars.eternal_name);
+
+      
+
+      //li.textContent = `${card.name} | ${card.franch} | ${card.eternal_name} | ${card.id} `;
+      a.innerHTML = randChar.rname; //+ ' from ' + card.franch + '. Starting Item = ' + card.eternal_name + '. ID:' + card.id;
+      a_et.innerHTML = eternals.at(i).real_name;
+      a_third.innerHTML = 'blank';
+      a_fourth.innerHTML = 'blank';
+      
+      set = randChar.set;
+
+      
+      const imgUrl = 'https://storage.googleapis.com/fs_char/char/' + set +  '/' + randChar.name +'.png';
+      var imgUrl_et = '';
+      var imgUrl_third = '';
+      var imgUrl_fourth = '';
+
+      switch(randChar.name) {
+        case 'eden':
+          imgUrl_et = 'https://storage.googleapis.com/fs_char/cardback/treasure_deck.png';
+          imgUrl_third = 'https://storage.googleapis.com/fs_char/cardback/treasure_deck.png';
+          imgUrl_fourth = 'https://storage.googleapis.com/fs_char/cardback/treasure_deck.png';
+          break;
+        case 'level_one_isaac':
+          imgUrl_et = 'https://storage.googleapis.com/fs_char/cardback/loot_deck.png';
+          imgUrl_third = 'https://storage.googleapis.com/fs_char/cardback/loot_deck.png';
+          imgUrl_fourth = 'https://storage.googleapis.com/fs_char/cardback/loot_deck.png';
+          break;
+        default:
+          imgUrl_et = 'https://storage.googleapis.com/fs_char/eternals/' + randChar.eternal_name +'.png';
+          imgUrl_third = 'https://storage.googleapis.com/fs_char/cardback/blank.png';
+          imgUrl_fourth = 'https://storage.googleapis.com/fs_char/cardback/blank.png';
+      } 
+      
+      imgElement.src = imgUrl;
+      imgElement.classList.add('aligncenter');
+      imgElement.classList.add('wp-post-image');
+      imgElement.classList.add('ls-is-cached');
+      imgElement.classList.add('lazyloaded');
+
+      imgElement_et.src = imgUrl_et;
+      imgElement_et.classList.add('aligncenter');
+      imgElement_et.classList.add('wp-post-image');
+      imgElement_et.classList.add('ls-is-cached');
+      imgElement_et.classList.add('lazyloaded');
+
+      imgElement_third.src = imgUrl_third;
+      imgElement_third.classList.add('aligncenter');
+      imgElement_third.classList.add('wp-post-image');
+      imgElement_third.classList.add('ls-is-cached');
+      imgElement_third.classList.add('lazyloaded');
+
+      imgElement_fourth.src = imgUrl_fourth;
+      imgElement_fourth.classList.add('aligncenter');
+      imgElement_fourth.classList.add('wp-post-image');
+      imgElement_fourth.classList.add('ls-is-cached');
+      imgElement_fourth.classList.add('lazyloaded');
+
+      div.classList.add('cardGridCell');
+      div_et.classList.add('cardGridCell');
+      div_third.classList.add('cardGridCell');
+      div_fourth.classList.add('cardGridCell');
+
+      a.appendChild(imgElement);
+      div.appendChild(a);
+      cardList.appendChild(div);
+
+      a_et.appendChild(imgElement_et);
+      div_et.appendChild(a_et);
+      cardList.appendChild(div_et);
+
+      a_third.appendChild(imgElement_third);
+      div_third.appendChild(a_third);
+      cardList.appendChild(div_third);
+
+      a_fourth.appendChild(imgElement_fourth);
+      div_fourth.appendChild(a_fourth);
+      cardList.appendChild(div_fourth);
+      i++;
+  });
+
+  } catch (error) {
+    console.error('Error:', error);
+  }
+}
+
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+  document.body.style.backgroundColor = "white";
 }

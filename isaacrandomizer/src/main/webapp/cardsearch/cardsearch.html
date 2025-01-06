@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/style.css"></link>
+    <script src="/script.js"></script>
+    <title>Four Souls Randomizer</title>
+    <a href="/" id="LogoImgLink"><img id="LogoImg" class="aligncenter size-medium ls-is-cached lazyloaded" src="/resources/images/foursoulslogo/FourSoulsLogo.png" alt="Four Souls Logo" width="526" height="300" data-src="/resources/images/foursoulslogo/FourSoulsLogo.png" decoding="async" data-eio-rwidth="1024" data-eio-rheight="584">
+      <noscript><img id="LogoImg" class="aligncenter size-medium" src="/resources/images/foursoulslogo/FourSoulsLogo.png" alt="Four Souls Logo" width="526" height="300" data-eio="l" />
+      </noscript>
+    </a>
+  </head>
+
+  <body onload="getCardStatus()">
+    
+    <h1 class="center">Card Randomizer featuring Kire Cards</h1>
+    <p class="center">This is a WIP.</p>
+
+    <div class="container" id="page-content">
+      <div class="menu-main-menu-container">
+      <ul id="menu-main-menu" class="menu">
+        <li id="menu-item-4630" class="goldchest menu-item menu-item-type-post_type menu-item-object-page menu-item-4630"><a href="/cards/cards.html">Cards</a></li>
+        <li id="menu-item-133" class="woodchest menu-item menu-item-type-post_type menu-item-object-page menu-item-133"><a href="/rules/rules.html">Rules</a></li>
+        <li id="menu-item-140" class="slotmachine menu-item menu-item-type-post_type menu-item-object-page menu-item-140"><a href="/randomize/randomize.html">Randomize</a></li>
+        <li id="menu-item-137" class="redchest menu-item menu-item-type-post_type menu-item-object-page menu-item-137"><a href="/print/print.html">Print</a></li>
+        <li id="menu-item-135" class="dirtychest menu-item menu-item-type-post_type menu-item-object-page menu-item-135"><a href="/about/about.html">About</a></li>
+        <li id="menu-item-134" class="holychest menu-item menu-item-type-post_type menu-item-object-page menu-item-134"><a href="/contact/contact.html">Contact</a></li>
+      </ul>
+      </div>
+
+      <h1>Search Results</h1>
+
+     <h3 id = card_num_res ></h3>
+     
+     
+     <div id="cardGrid">
+     </div>
+
+     <hr>
+
+      <h2>Advanced Card Search</h2>
+
+      <form method="get" id="card-searchform" role="search" action="/card-search/">
+        <div id="cardSearchColumns">
+          <div id="Cardsearch_SearchText"><label>Search Text:
+            <input name="searchtext" type="text" value="" placeholder="Search Text"></label>
+          </div>
+        <div id="Cardsearch_Origin"><label>Origin Set:
+          <select name="origin" id="Cardsearch_Origin_Select">
+            <option value="">Please Select...</option>
+            <option value="" disabled="">--- CORE DECKS ---</option>
+            <option value="b2">Base Game V2</option>
+            <option value="fsp2">Four Souls+ V2</option>
+            <option value="r">Requiem</option>
+            <option value="" disabled="">--- PROMOTIONAL DECKS ---</option>
+            <option value="g2">Gold Box V2</option>
+            <option value="rwz">Requiem Warp Zone</option>
+            <option value="aa">Alt Art</option>
+            <option value="t">Target</option>
+            <option value="gi">Gish</option>
+            <option value="tw">Tapeworm</option>
+            <option value="dk">Dick Knots</option>
+            <option value="ret">Retro</option>
+            <option value="gf">G-Fuel</option>
+            <option value="bum">The Legend of Bum-bo!</option>
+            <option value="box">The Unboxing of Isaac</option>
+            <option value="p">Promos</option>
+            <option value="" disabled="">--- Modded ---</option>
+            <option value="vd">Voids</option>
+            <option value="kt">Hollow Knight</option>
+            <option value="hal">Halo</option>
+            <option value="pkmn">Pokemon</option>
+            <option value="tes">The Elder Scrolls</option>
+            <option value="" disabled="">--- EXTRAS ---</option>
+            <option value="rebalance">Rebalance Pack</option>
+            <option value="blank">Blank</option>
+            <option value="challenge">Challenges</option>
+            <option value="" disabled="">--- RETIRED DECKS ---</option>
+            <option value="b">Base Game V1</option>
+            <option value="g">Gold Box V1</option>
+            <option value="fsp">Four Souls+ V1</option>
+            <option value="" disabled="">--- COMPARISON SEARCHES ---</option>
+            <option value="bb2">Base Game V1+V2</option>
+            <option value="gg2">Gold Box V1+V2</option>
+            <option value="fspfsp2">Four Souls+ V1+V2</option>
+          </select></label>
+        </div>
+
+        <div id="Cardsearch_Card_Type"><label>Card Type:
+          <select name="card_type">
+            <option value="">Please Select...</option>
+            <option value="character">Character</option>
+            <option value="eternal">Eternal Treasure</option>
+            <option value="peternal">↳ Passive Eternal Treasure</option>
+            <option value="aeternal">↳ Active Eternal Treasure</option>
+            <option value="paideternal">↳ Paid Eternal Treasure</option>
+            <option value="oeternal">↳ One-Use Eternal Treasure</option>
+            <option value="seternal">↳ Soul Eternal Treasure</option>
+            <option value="treasure">Treasure</option>
+            <option value="ptreasure">↳ Passive Treasure</option>
+            <option value="atreasure">↳ Active Treasure</option>
+            <option value="paidtreasure">↳ Paid Treasure</option>
+            <option value="otreasure">↳ One-Use Treasure</option>
+            <option value="streasure">↳ Soul Treasure</option>
+            <option value="monster">Monster</option>
+            <option value="bmonster">↳ Basic Monster</option>
+            <option value="cmonster">↳ Cursed Monster</option>
+            <option value="hmonster">↳ Holy Monster</option>
+            <option value="chamonster">↳ Charmed Monster</option>
+            <option value="gevent">↳ Good Event</option>
+            <option value="bevent">↳ Bad Event</option>
+            <option value="curse">↳ Curse</option>
+            <option value="boss">↳ Boss</option>
+            <option value="epic">↳ Epic Boss</option>
+            <option value="void">↳ Void </option>
+            <option value="comp">↳ Companion </option>
+            <option value="pkmob">↳ Pokemon (Catchable)</option>
+            <option value="monster">Familiars</option>
+            <option value="pkmob">↳ Pokemon (Familiar)</option>
+            <option value="void">↳ Void Familiar </option>
+            <option value="loot">Loot</option>
+            <option value="cards">↳ Cards</option>
+            <option value="trinkets">↳ Trinkets</option>
+            <option value="pills">↳ Pills</option>
+            <option value="runes">↳ Runes</option>
+            <option value="butter">↳ Butter Beans</option>
+            <option value="bombs">↳ Bombs</option>
+            <option value="batteries">↳ Batteries</option>
+            <option value="keys">↳ Keys</option>
+            <option value="dice">↳ Dice Shards</option>
+            <option value="sheart">↳ Soul Hearts</option>
+            <option value="bheart">↳ Black Hearts</option>
+            <option value="sack">↳ Sacks</option>
+            <option value="lsoul">↳ Lost Soul</option>
+            <option value="money">↳ Money</option>
+            <option value="1c">↳ ↳ 1 Cents</option>
+            <option value="2c">↳ ↳ 2 Cents</option>
+            <option value="3c">↳ ↳ 3 Cents</option>
+            <option value="4c">↳ ↳ 4 Cents</option>
+            <option value="5c">↳ ↳ Nickel</option>
+            <option value="10c">↳ ↳ Dime</option>
+            <option value="wildcard">↳ Wildcard</option>
+            <option value="bsoul">Bonus Soul</option>
+            <option value="room">Room</option>
+            <option value="outside">Extra</option>
+          </select></label>
+        </div>
+
+        <div id="Cardsearch_Footnotes"><label>Card Footnotes:
+          <select name="card_footnotes" id="Cardsearch_Footnotes_Select">
+            <option value="">Please Select...</option>
+            <option value="a">Ambush</option>
+            <option value="c">Curse</option>
+            <option value="e">Eternal</option>
+            <option value="g">Guppy</option>
+            <option value="i">Indomitable</option>
+            <option value="t">Trinket</option>
+            <option value="f">Companion</option>
+            <option value="v">Familliar</option>
+          </select></label>
+        </div>
+
+        <div id="Cardsearch_3PP"><label>Minimum Players:
+          <select name="competitive_only" id="Cardsearch_3PP_Select">
+            <option value="">Please Select...</option>
+            <option value="0">Unrestricted</option>
+            <option value="1">3P+ Only</option>
+          </select></label>
+        </div>
+
+        <div id="Cardsearch_Identical"><label>Hide Identical Cards:
+          <select name="identical">
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select></label>
+        </div>
+
+        <div id="Cardsearch_Outdated"><label>Card Status:
+          <select name="cardstatus">
+            <option value="cur">Current</option>
+            <option value="ret">Retired</option>
+            <option value="con">Concept</option>
+            <option value="all">All</option>
+          </select></label>
+        </div>
+
+        <div id="Cardsearch_HoloCard"><label>Holo Status:
+          <select name="holo">
+            <option value="">Please Select...</option>
+            <option value="all">All Holo</option>
+            <option value="chance">Random Chance</option>
+            <option value="none">None</option>
+            <option value="unknown">Unknown</option>
+          </select></label>
+        </div>
+
+        <div id="Cardsearch_PrintStatus"><label>Print Status:
+          <select name="printstatus">
+            <option value="">Please Select...</option>
+            <option value="yes">In Print</option>
+            <option value="no">Not In Print</option>
+            <option value="planned">Planned</option>
+            <option value="never">Never Printed</option>
+          </select></label>
+        </div>
+
+        <div id="Cardsearch_Franchise"><label>Franchise Origin:
+          <select name="franchise" id="Cardsearch_Franchise_Select">
+            <option value="">Please Select...</option>
+            <option value="ao">Abe's Odyssey</option>
+            <option value="au">Among Us</option>
+            <option value="b">Blasphemous</option>
+            <option value="biy">Baba Is You</option>
+            <option value="c">Celeste</option>
+            <option value="cah">Cyanide And Happiness</option>
+            <option value="cc">Castle Crashers</option>
+            <option value="cs">Cave Story</option>
+            <option value="d">Dusk</option>
+            <option value="dark">Darkest Dungeons</option>
+            <option value="dd">Dicey Dungeons</option>
+            <option value="ds">Don't Starve</option>
+            <option value="etg">Enter The Gungeon</option>
+            <option value="fnf">Friday Night Funkin'</option>
+            <option value="gi">Gish</option>
+            <option value="goi">Getting Over It</option>
+            <option value="hk">Hollow Knight</option>
+            <option value="hm">Hotline Miami</option>
+            <option value="im">Isaac Memes</option>
+            <option value="jthm">Johnny The Homicidal Maniac</option>
+            <option value="kd">Kingdom Death</option>
+            <option value="ng">Newgrounds</option>
+            <option value="nt">Nuclear Throne</option>
+            <option value="pg">Psycho Goreman</option>
+            <option value="q">QWOP</option>
+            <option value="ror">Risk Of Rain</option>
+            <option value="s">Spelunky</option>
+            <option value="spew">Spewer</option>
+            <option value="sf">Salad Fingers</option>
+            <option value="si">Self Insert</option>
+            <option value="sn">Subnautica</option>
+            <option value="sts">Slay The Spire</option>
+            <option value="t">Towerfall</option>
+            <option value="tein">The End Is Nigh</option>
+            <option value="tfcuk">Time Fcuk</option>
+            <option value="tjae">ToeJam And Earl</option>
+            <option value="tlob">The Legend of Bumbo</option>
+            <option value="tr">The Room</option>
+            <option value="v">VVVVVV</option>
+          </select></label>
+        </div>
+
+        <div id="cardSearchButtonColumns">
+          <input class="formButton" type="submit" id="searchsubmit" value="Search"><input class="formButton" type="reset" id="searchreset" value="Reset all fields">
+          <label for="sort" class="screen-reader-text">Sort Alphabetically?</label>
+          <input type="checkbox" id="sort" name="sort" value="abc" title="Sort By Card Order/ABC">
+        </div>
+        </form>
+
+    </div>
+  </body>
+</html>

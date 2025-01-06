@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="/style.css"></link>
+    <script src="/script.js"></script>
     <title>Four Souls Randomizer</title>
     <a href="/" id="LogoImgLink"><img id="LogoImg" class="aligncenter size-medium ls-is-cached lazyloaded" src="/resources/images/foursoulslogo/FourSoulsLogo.png" alt="Four Souls Logo" width="526" height="300" data-src="/resources/images/foursoulslogo/FourSoulsLogo.png" decoding="async" data-eio-rwidth="1024" data-eio-rheight="584">
       <noscript><img id="LogoImg" class="aligncenter size-medium" src="/resources/images/foursoulslogo/FourSoulsLogo.png" alt="Four Souls Logo" width="526" height="300" data-eio="l" />
@@ -25,7 +26,24 @@
         <li id="menu-item-135" class="dirtychest menu-item menu-item-type-post_type menu-item-object-page menu-item-135"><a href="/about/about.html">About</a></li>
         <li id="menu-item-134" class="holychest menu-item menu-item-type-post_type menu-item-object-page menu-item-134"><a href="/contact/contact.html">Contact</a></li>
       </ul>
-      </div>
+    </div>
+
+    <div id="content">
+      <h1>Random Characters</h1>
+      <p>Click here to see a random set of characters:</p>
+      <button onclick="randcard()">Meow</button>
+      <div class="g2icon lazyloaded" id="random-image-container"></div>
+    </div>
+
+    <h1>Search Results</h1>
+
+    <h3 id = card_num_res ></h3>
+     
+     
+    <div id="cardGrid">
+    </div>
+
+
     </div>
   </body>
 </html>
