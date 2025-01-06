@@ -90,7 +90,6 @@ body.error404 {
   }
   .rewardTitle {
   text-align:center;
-  } .alignnone {
   }
   .aligncenter,
   div.aligncenter {
@@ -108,8 +107,6 @@ body.error404 {
   a img.alignright {
   float: right;
   margin: 5px 0 20px 20px;
-  }
-  a img.alignnone {
   }
   a img.alignleft {
   float: left;
@@ -707,7 +704,6 @@ body.error404 {
   clip-path: inset(3.1% round 4%) !important;
   }
   #CardTags, #CardTagsContainer ul {display:flex;}
-  h3 {}
   #CardTagsContainer {flex-grow:1; align-items: stretch;}
   #CardTagsContainer ul {flex-wrap:wrap; list-style-type:none;}
   #CardTagsContainer ul li {margin:3px 10px; background-color:#000; padding:3px; border:3px solid #FFF;}
@@ -773,7 +769,7 @@ body.error404 {
   #cardSearchButtonColumns input[type="checkbox"]:checked:after {content: " "; display:none;}
   #cardGrid {display:flex; flex-wrap:wrap;}
   .cardGridCell { width:24%; text-align:center; margin: 0 auto; position:relative; }
-  .cardGridCell img { max-width:100%; height:auto; border-radius: 8px; clip-path: inset(3.1% round 4%) !important; }
+  .cardGridCell img { max-width:100%; height:auto; border-radius: 8px;}
   .cardGridFlippable {position:relative;}
   img.cardsearchDiffIcon {position:absolute; left:-5px; top:-3px; width:40px; height:auto; max-width:20%; border-radius:initial; z-index:1;}
   .cardsearchDiffIcon~.cardsearchDiffIcon {left:33px;}
@@ -1272,7 +1268,7 @@ body.error404 {
   width:98%;
   }
   #card-searchform #cardSearchColumns div {
-  width:48% !important;
+  width:14% !important;
   padding:0 1% !important;
   }
   #searchsubmit, #card-searchform #cardSearchColumns input, #card-searchform #cardSearchColumns select {
@@ -1535,8 +1531,6 @@ body.error404 {
   font-family:Arial, Helvetica, sans-serif;
   font-size: 250%;
   }
-  body.acctextsizedouble {}
-  body.acctextsizequadruple {}
 
   html :where(.has-border-color){
     border-style:solid;
