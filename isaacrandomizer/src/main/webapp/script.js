@@ -208,11 +208,28 @@ async function randcard(){
       }
 
       if(eternals.at(i).flip != 'null'){
-        imgUrl_third = 'https://storage.googleapis.com/fs_char/eternals/' + eternals.at(i).flip +'.png';
+        imgUrl_third = 'https://storage.googleapis.com/fs_char/eternals/'  + eternals.at(i).flip +'.png';
         const et_name_parts = eternals.at(i).real_name.split('/');
         a_et.innerHTML = et_name_parts[0];
         a_third.innerHTML = et_name_parts[1];
+      }
 
+      if(randChar.flip != 'null'){
+        imgUrl_third = 'https://storage.googleapis.com/fs_char/char/' + set +  '/'  + randChar.flip +'.png';
+        const name_parts = randChar.rname.split('/');
+        a_et.innerHTML = name_parts[0];
+        a_third.innerHTML = name_parts[1];
+      }
+
+      if(eternals.at(i).secondary_item != 'null'){
+        imgUrl_third = 'https://storage.googleapis.com/fs_char/eternals/'  + eternals.at(i).secondary_item +'.png';
+        const et_name_parts = eternals.at(i).real_name.split('+');
+        a_et.innerHTML = et_name_parts[0];
+        a_third.innerHTML = et_name_parts[1];
+        if(eternals.at(i).secondary_item == "legends_end"){
+          imgUrl_fourth = 'https://storage.googleapis.com/fs_char/cardback/noble_deck.png';
+          a_fourth.innerHTML = "Noble's Deck";
+        }
       }
       
       imgElement.src = imgUrl;
