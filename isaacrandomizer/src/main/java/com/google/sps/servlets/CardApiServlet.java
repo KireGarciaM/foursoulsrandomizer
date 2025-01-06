@@ -58,6 +58,7 @@ public class CardApiServlet extends HttpServlet {
                     .append("\"name\":\"").append(rs.getString("name")).append("\",")
                     .append("\"franch\":\"").append(rs.getString("franch")).append("\",")
                     .append("\"rname\":\"").append(rs.getString("real_name")).append("\",")
+                    .append("\"flip\":\"").append(rs.getString("flip")).append("\",")
                     .append("\"set\":\"").append(rs.getString("set")).append("\",")
                     .append("\"eternal_name\":\"").append(rs.getString("eternal_name")).append("\"")
                     .append("}");
