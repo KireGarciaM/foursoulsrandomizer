@@ -58,9 +58,9 @@ public class EternalApiServlet extends HttpServlet {
             org.json.JSONArray namesArray = new org.json.JSONArray(jsonString);
     
             if (namesArray.length() > 0) {
-                query.append(" WHERE eternal_name IN (");
+                query.append(" WHERE name IN (");
                 String placeholders = String.join(",", java.util.Collections.nCopies(namesArray.length(), "?"));
-                query.append(placeholders).append(") ORDER BY CASE eternal_name");
+                query.append(placeholders).append(") ORDER BY CASE name");
             }
 
             for (int i = 0; i < namesArray.length(); i++) {
@@ -90,7 +90,7 @@ public class EternalApiServlet extends HttpServlet {
                         if (json.length() > 1) json.append(",");
                         json.append("{")
                             .append("\"id\":").append(rs.getInt("id")).append(",")
-                            .append("\"eternal_name\":\"").append(rs.getString("eternal_name")).append("\",")
+                            .append("\"name\":\"").append(rs.getString("name")).append("\",")
                             .append("\"flip\":\"").append(rs.getString("flip")).append("\",")
                             .append("\"secondary_item\":\"").append(rs.getString("secondary_item")).append("\",")
                             .append("\"real_name\":\"").append(rs.getString("real_name")).append("\"")
