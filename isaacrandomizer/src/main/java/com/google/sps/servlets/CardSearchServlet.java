@@ -1,0 +1,101 @@
+// Copyright 2020 Google LLC
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     https://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+package com.google.sps.servlets;
+
+//import java.util.ArrayList;
+import java.io.*;
+import java.sql.*;
+import java.sql.PreparedStatement;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+// Logs in and logs out the user while also accessing userdata
+// retrieved from having logged in. The data is stored in a 
+// Json and then sent back as a response.
+@WebServlet("/cardsearch/")
+public class CardSearchServlet  extends HttpServlet {
+
+    private static final String DB_URL = "jdbc:sqlite:/home/erik_garciamontoya/foursoulsrandomizer/isaacrandomizer/src/main/java/com/google/sps/servlets/testSouls.db";
+
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+
+        String searchText = request.getParameter("searchtext");
+        String set = request.getParameter("set");
+        String cardType = request.getParameter("card_type");
+        String franch = request.getParameter("franch");
+
+        String query = "SELECT * FROM cards WHERE 1=1";
+        if (searchText != null && !searchText.isEmpty()) {
+            query += " AND name LIKE ?";
+        }
+        if (set != null && !set.isEmpty()) {
+            query += " AND c_set = ?";
+        }
+        if (cardType != null && !cardType.isEmpty()) {
+            query += " AND card_type = ?";
+        }
+        if (franch != null && !franch.isEmpty()) {
+            query += " AND franch = ?";
+        }
+
+        try (Connection connection = DriverManager.getConnection(DB_URL);
+             PreparedStatement statement = connection.prepareStatement(query)) {
+
+            int paramIndex = 1;
+            if (searchText != null && !searchText.isEmpty()) {
+                statement.setString(paramIndex++, "%" + searchText + "%");
+            }
+            if (set != null && !set.isEmpty()) {
+                statement.setString(paramIndex++, set);
+            }
+            if (cardType != null && !cardType.isEmpty()) {
+                statement.setString(paramIndex++, cardType);
+            }
+            if (franch != null && !franch.isEmpty()) {
+                statement.setString(paramIndex++, franch);
+            }
+
+            ResultSet resultSet = statement.executeQuery();
+            response.setContentType("application/json");
+            response.getWriter().write(resultSetToJson(resultSet));
+        } catch (SQLException e) {
+            e.printStackTrace();
+            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Database error.");
+        }
+    }
+
+    private String resultSetToJson(ResultSet resultSet) throws SQLException {
+        StringBuilder json = new StringBuilder("[");
+        while (resultSet.next()) {
+            json.append("{")
+                .append("\"id\":").append(resultSet.getInt("id")).append(",")
+                .append("\"name\":\"").append(resultSet.getString("name")).append("\",")
+                .append("\"set\":\"").append(resultSet.getString("c_set")).append("\",")
+                .append("\"deck_type\":\"").append(resultSet.getString("deck_type")).append("\",")
+                .append("\"file_name\":\"").append(resultSet.getString("file_name")).append("\",")
+                .append("\"franch\":\"").append(resultSet.getString("franch")).append("\"")
+                .append("},");
+        }
+        if (json.length() > 1) json.setLength(json.length()-1); // Remove trailing comma
+        json.append("]");
+        return json.toString();
+    }
+
+}

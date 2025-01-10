@@ -13,7 +13,7 @@
 // limitations under the License.
 
 /**
- * Adds a random greeting to the page.
+ * Adds a random image to the page.
  */
 function randomizeImage() {
   // The images directory contains 13 images, so generate a random index between
@@ -46,9 +46,8 @@ function randomizeImage() {
 
 function getCardStatus() {
 
-  // Fetches json from userapi servlet and uses to set the login
-  // and logout links for the front end.
-  fetch('/cardapi').then(response => response.json()).then(cards => {
+  
+  fetch('/searchapi').then(response => response.json()).then(cards => {
       var card_counter = 0;
       const cardList = document.getElementById('cardGrid');
       console.log('Cards:', cards);
@@ -58,8 +57,7 @@ function getCardStatus() {
                     const div = document.createElement('div');
                     const a = document.createElement('a');
                     const imgElement = document.createElement('img');
-                    //li.textContent = `${card.name} | ${card.franch} | ${card.eternal_name} | ${card.id} `;
-                    a.innerHTML = card.rname; //+ ' from ' + card.franch + '. Starting Item = ' + card.eternal_name + '. ID:' + card.id;
+                    a.innerHTML = card.name; 
                     
                     
                     set = card.set;
