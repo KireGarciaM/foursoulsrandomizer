@@ -41,18 +41,30 @@ public class CardSearchServlet  extends HttpServlet {
         String cardType = request.getParameter("card_type");
         String franch = request.getParameter("franch");
 
-        String query = "SELECT * FROM cards WHERE 1=1";
-        if (searchText != null && !searchText.isEmpty()) {
-            query += " AND name LIKE ?";
+        String query = "SELECT * FROM cards c";
+        
+        if (cardType != null && !cardType.isEmpty()) {
+            query += " join card_types ct on ct.card_id = c.id";
+            query += " join types t on t.id = ct.type_id";
         }
+        query += "  WHERE 1=1";
+
+        if (searchText != null && !searchText.isEmpty()) {
+            if (cardType != null && !cardType.isEmpty())
+                query += " AND c.name LIKE ?";
+            else
+                query += " AND name LIKE ?";
+        }
+
         if (set != null && !set.isEmpty()) {
             query += " AND c_set = ?";
         }
-        if (cardType != null && !cardType.isEmpty()) {
-            query += " AND card_type = ?";
-        }
+
         if (franch != null && !franch.isEmpty()) {
             query += " AND franch = ?";
+        }
+        if (cardType != null && !cardType.isEmpty()) {
+            query += " AND t.name = ?";
         }
 
         try (Connection connection = DriverManager.getConnection(DB_URL);
@@ -65,12 +77,13 @@ public class CardSearchServlet  extends HttpServlet {
             if (set != null && !set.isEmpty()) {
                 statement.setString(paramIndex++, set);
             }
-            if (cardType != null && !cardType.isEmpty()) {
-                statement.setString(paramIndex++, cardType);
-            }
             if (franch != null && !franch.isEmpty()) {
                 statement.setString(paramIndex++, franch);
             }
+            if (cardType != null && !cardType.isEmpty()) {
+                statement.setString(paramIndex++, cardType);
+            }
+            System.out.println(statement);
 
             ResultSet resultSet = statement.executeQuery();
             response.setContentType("application/json");

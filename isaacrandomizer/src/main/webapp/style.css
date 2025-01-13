@@ -7,18 +7,27 @@ body {
   background-color: #000;
   font-family: 'Roboto', Helvetica, sans-serif;
   position:relative;
-  background-image: url(https://foursouls.com/wp-content/uploads/2021/07/FourSoulsBackgroundStarLayer05.png), url(https://foursouls.com/wp-content/uploads/2021/07/FourSoulsBackgroundStarLayer04.png), url(https://foursouls.com/wp-content/uploads/2021/07/FourSoulsBackgroundStarLayer03.png), url(https://foursouls.com/wp-content/uploads/2021/07/FourSoulsBackgroundStarLayer02.png), url(https://foursouls.com/wp-content/uploads/2021/07/FourSoulsBackgroundStarLayer01.png), url(/resources/images/halo/haloimage.jpg);
-  animation: planetariumBackground 120s linear infinite;
-  background-size: 600px 400px,600px 400px,600px 400px,600px 400px,600px 400px,1920px 1080px;
+  }
+
+.planetarium{
+  position:fixed;
+  background-image: url(https://foursouls.com/wp-content/uploads/2021/07/FourSoulsBackgroundStarLayer05.png), url(https://foursouls.com/wp-content/uploads/2021/07/FourSoulsBackgroundStarLayer04.png), url(https://foursouls.com/wp-content/uploads/2021/07/FourSoulsBackgroundStarLayer03.png), url(https://foursouls.com/wp-content/uploads/2021/07/FourSoulsBackgroundStarLayer02.png), url(https://foursouls.com/wp-content/uploads/2021/07/FourSoulsBackgroundStarLayer01.png);
+  animation: planetariumBackground 120s linear infinite ;
+  background-size: 600px 400px,600px 400px,600px 400px,600px 400px,600px 400px,cover;
   -webkit-font-smoothing: subpixel-antialiased;
   background-attachment: fixed; /* Makes the image static while scrolling */
-  }
+  z-index: 0; /* Behind main content */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
 
 @keyframes planetariumBackground {
   from { background-position: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%; }
   to { background-position: -7200px 4800px, -6000px 4000px, -4800px 3200px, -3600px 2400px, -2400px 1600px, 0% 0%; }
 }
-body.error404 {
+test.error404 {
   background-image: url(https://foursouls.com/wp-content/uploads/2021/07/FourSoulsBackground404.png);
   animation: planetariumBackground 300s linear infinite;
 }
@@ -27,6 +36,63 @@ body.error404 {
   to { background-position: -3600px 2400px; }
 }
 
+/* Slideshow container */
+.slideshow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2; /* Ensure it's under planetariumBackground */
+  overflow: hidden;
+}
+
+.slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  animation: fade 12s infinite;
+}
+
+.slide:nth-child(1) {
+  background-image: url('/resources/images/halo/haloimage.jpg');
+  animation-delay: 0s;
+}
+
+.slide:nth-child(2) {
+  background-image: url('/resources/images/tes/whiterun.jpeg');
+  animation-delay: 4s;
+}
+
+.slide:nth-child(3) {
+  background-image: url('/resources/images/tes/hotspringshk.jpeg');
+  animation-delay: 8s;
+}
+
+/* Fade animation */
+@keyframes fade {
+  0%, 100% {
+      opacity: 0;
+  }
+  33% {
+      opacity: 1;
+  }
+  66% {
+      opacity: 0;
+  }
+}
+
+/* Main content styling */
+.content {
+  position: relative;
+  z-index: -1;
+  text-align: center;
+  padding: 20px;
+  color: #333;
+}
 .center-img {
     display: block;
     margin-left: auto;
@@ -780,7 +846,7 @@ body.error404 {
   .search-flipnote {position:absolute; right:-6px; top:0px; width: 40%; z-index: 5;}
   .searchimage-front-active {transform: rotateY(180deg); z-index:1;}
   .searchimage-back-active {transform: rotateY(0deg); z-index:4;}
-  .nf-form-content label {font-size: 180% !important; line-height: normal !important; text-transform:uppercase; Helvetica, sans-serif;}
+  .nf-form-content label {font-size: 180% !important; line-height: normal !important; text-transform:uppercase;}
   .nf-form-content .checkbox-wrap label {font-size:80% !important;}
   .nf-form-content legend {font-size: 180%;}
   .nf-form-content .nf-add-fieldset {font-size: 130%; padding:10px;}
