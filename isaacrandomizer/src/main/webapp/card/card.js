@@ -14,48 +14,68 @@
 const searchParams = new URLSearchParams({
     searchtext: '', // Name or keyword
     set: '',
-    card_type: '',
-    franch: ''
 });
 console.log('param:', searchParams.toString());
 let params = new URL(document.location.toString()).searchParams;
 
-fetch(`/cardsearch/?${params.toString()}`)
+fetch(`/cards?${params.toString()}`)
     .then(response => response.json())
     .then(cards => {
-        var card_counter = 0;
-        const cardList = document.getElementById('cardGrid');
+        const cardList = document.querySelector('main');
         console.log('Cards:', cards);
                 cards.forEach(card => {
-                    card_counter++;
                     const div = document.createElement('div');
+                    const left = document.createElement('div');
+                    const info = document.createElement('div');
+                    const right = document.createElement('div');
                     const a = document.createElement('a');
+                    const a2 = document.createElement('a');
+                    const h = document.createElement('h1');
                     const imgElement = document.createElement('img');
-                    a.innerHTML = card.name;
-                    a.href = '/card/card.html/?searchtext=' + card.file_name + '&set=' + card.set;
+                    const backimgElement = document.createElement('img');
+                    h.innerHTML = card.name;
+                    
                     const set = card.set;
                     var imgUrl = 'https://storage.googleapis.com/fs_char/' + card.deck_type + '/' + set +  '/' + card.file_name +'.png';
 
                     if(card.deck_type == 'eternals')
                         imgUrl = 'https://storage.googleapis.com/fs_char/' + card.deck_type +  '/' + card.file_name +'.png';
 
-                
+                    backimgUrl = 'https://storage.googleapis.com/fs_char/cardback/' + card.deck_type + '.png';
+
+                    a.classList.add('swipebox');
+                    a2.classList.add('swipebox');
                     
                     imgElement.src = imgUrl;
                     imgElement.classList.add('aligncenter');
                     imgElement.classList.add('wp-post-image');
                     imgElement.classList.add('ls-is-cached');
                     imgElement.classList.add('lazyloaded');
+                    imgElement.classList.add('cardFront');
 
-                    div.classList.add('cardGridCell');
+                    backimgElement.src = backimgUrl;
+                    backimgElement.classList.add('aligncenter');
+                    backimgElement.classList.add('wp-post-image');
+                    backimgElement.classList.add('ls-is-cached');
+                    backimgElement.classList.add('lazyloaded');
+                    backimgElement.classList.add('cardBack');
+
+                    div.setAttribute('id', 'CardDisplay');
+                    left.setAttribute('id', 'CardLeft');
+                    info.setAttribute('id', 'CardInfo');
+                    right.setAttribute('id', 'CardRight');
+                    
 
                     a.appendChild(imgElement);
-                    div.appendChild(a);
+                    a2.appendChild(backimgElement);
+                    left.appendChild(a);
+                    right.appendChild(a2);
+                    div.appendChild(left);
+                    div.appendChild(info);
+                    div.appendChild(right);
+                    cardList.appendChild(h);
                     cardList.appendChild(div);
                 });
-      const link = document.getElementById("card_num_res");
-      const cardMessage = card_counter + " Cards Have Been Found";
-      link.innerHTML = cardMessage;
     })
     .catch(error => {
         console.error('Error fetching data:', error);
