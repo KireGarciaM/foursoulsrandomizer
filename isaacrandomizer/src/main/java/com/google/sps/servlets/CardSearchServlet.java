@@ -38,9 +38,10 @@ public class CardSearchServlet  extends HttpServlet {
 
         String searchText = request.getParameter("searchtext");
         String set = request.getParameter("set");
+        String d_type = request.getParameter("deck_type");
         String cardType = request.getParameter("card_type");
         String franch = request.getParameter("franch");
-
+        System.out.println("d_type " + d_type);
         String query = "SELECT * FROM cards c";
         
         if (cardType != null && !cardType.isEmpty()) {
@@ -60,6 +61,10 @@ public class CardSearchServlet  extends HttpServlet {
             query += " AND c_set = ?";
         }
 
+        if (d_type != null && !d_type.isEmpty()) {
+            query += " AND deck_type = ?";
+        }
+
         if (franch != null && !franch.isEmpty()) {
             query += " AND franch = ?";
         }
@@ -76,6 +81,9 @@ public class CardSearchServlet  extends HttpServlet {
             }
             if (set != null && !set.isEmpty()) {
                 statement.setString(paramIndex++, set);
+            }
+            if (d_type != null && !d_type.isEmpty()) {
+                statement.setString(paramIndex++, d_type);
             }
             if (franch != null && !franch.isEmpty()) {
                 statement.setString(paramIndex++, franch);
@@ -103,8 +111,11 @@ public class CardSearchServlet  extends HttpServlet {
                 .append("\"set\":\"").append(resultSet.getString("c_set")).append("\",")
                 .append("\"deck_type\":\"").append(resultSet.getString("deck_type")).append("\",")
                 .append("\"file_name\":\"").append(resultSet.getString("file_name")).append("\",")
+                .append("\"special\":\"").append(resultSet.getString("special")).append("\",")
                 .append("\"franch\":\"").append(resultSet.getString("franch")).append("\"")
                 .append("},");
+            //System.out.println("filename:" + resultSet.getString("file_name") + "id:" + resultSet.getInt("id") +  "name:" + resultSet.getString("name") +
+            // "decktype:" + resultSet.getString("deck_type") + "Set:" + resultSet.getString("c_set") + "Franchise:" + resultSet.getString("franch"));
         }
         if (json.length() > 1) json.setLength(json.length()-1); // Remove trailing comma
         json.append("]");

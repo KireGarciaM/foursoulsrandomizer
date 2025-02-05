@@ -1,11 +1,3 @@
-/*package com.google.sps.servlets;
-
-public class test {
-
-}*/
-
-// Copyright 2020 Google LLC
-//
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
@@ -20,14 +12,12 @@ public class test {
 
 package com.google.sps.servlets;
 
-//import java.util.ArrayList;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
-//import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -59,7 +49,7 @@ public class CardApiServlet extends HttpServlet {
                     .append("\"franch\":\"").append(rs.getString("franch")).append("\",")
                     .append("\"rname\":\"").append(rs.getString("real_name")).append("\",")
                     .append("\"flip\":\"").append(rs.getString("flip")).append("\",")
-                    .append("\"set\":\"").append(rs.getString("set")).append("\",")
+                    .append("\"set\":\"").append(rs.getString("c_set")).append("\",")
                     .append("\"eternal_name\":\"").append(rs.getString("eternal_name")).append("\"")
                     .append("}");
         }

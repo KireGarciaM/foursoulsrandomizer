@@ -1,11 +1,3 @@
-/*package com.google.sps.servlets;
-
-public class test {
-
-}*/
-
-// Copyright 2020 Google LLC
-//
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
@@ -20,59 +12,42 @@ public class test {
 
 package com.google.sps.servlets;
 
-//import java.util.ArrayList;
-import java.io.IOException;
+import java.io.*;
 import java.sql.*;
+import java.sql.PreparedStatement;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/cards")
-public class CardsServlet extends HttpServlet {
-
+// Logs in and logs out the user while also accessing userdata
+// retrieved from having logged in. The data is stored in a 
+// Json and then sent back as a response.
+@WebServlet("/randcardapi")
+public class RandomCardApi extends HttpServlet {
     private static final String DB_URL = "jdbc:sqlite:/home/erik_garciamontoya/foursoulsrandomizer/isaacrandomizer/src/main/java/com/google/sps/servlets/testSouls.db";
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        String searchText = request.getParameter("searchtext");
-        String set = request.getParameter("set");
-        String dt = request.getParameter("deck_type");
+        String jsonString = request.getReader().lines().reduce("", (accumulator, actual) -> accumulator + actual);
+        org.json.JSONArray setsArray = new org.json.JSONArray(jsonString);
 
-        String query = "SELECT * FROM cards c";
-        
-        query += "  WHERE 1=1";
-
-        if (searchText != null && !searchText.isEmpty()) {
-            query += " AND c.file_name LIKE ?";
-        }
-
-        if (dt != null && !dt.isEmpty()) {
-            query += " AND deck_type = ?";
-        }
-
-        if (set != null && !set.isEmpty()) {
-            query += " AND c_set = ?";
+        String query = "SELECT * FROM character c";
+        if (setsArray != null && !setsArray.isEmpty()) {
+            query += " WHERE";
+            for(int i = 0; i < setsArray.length(); i++){
+                query += " c_set not in ('" + setsArray.getString(i) + "')";
+                if(i + 1 != setsArray.length()){
+                    query += " AND ";
+                }
+            }
         }
 
         try (Connection connection = DriverManager.getConnection(DB_URL);
              PreparedStatement statement = connection.prepareStatement(query)) {
-
-            int paramIndex = 1;
-            if (searchText != null && !searchText.isEmpty()) {
-                statement.setString(paramIndex++, searchText);
-            }
-            if (dt != null && !dt.isEmpty()) {
-                statement.setString(paramIndex++, dt);
-            }
-
-            if (set != null && !set.isEmpty()) {
-                statement.setString(paramIndex++, set);
-            }
-
             System.out.println(statement);
 
             ResultSet resultSet = statement.executeQuery();
@@ -90,13 +65,12 @@ public class CardsServlet extends HttpServlet {
             json.append("{")
                 .append("\"id\":").append(resultSet.getInt("id")).append(",")
                 .append("\"name\":\"").append(resultSet.getString("name")).append("\",")
+                .append("\"franch\":\"").append(resultSet.getString("franch")).append("\",")
+                .append("\"rname\":\"").append(resultSet.getString("real_name")).append("\",")
+                .append("\"flip\":\"").append(resultSet.getString("flip")).append("\",")
                 .append("\"set\":\"").append(resultSet.getString("c_set")).append("\",")
-                .append("\"deck_type\":\"").append(resultSet.getString("deck_type")).append("\",")
-                .append("\"special\":\"").append(resultSet.getString("special")).append("\",")
-                .append("\"special_name\":\"").append(resultSet.getString("special_names")).append("\",")
-                .append("\"file_name\":\"").append(resultSet.getString("file_name")).append("\",")
-                .append("\"franch\":\"").append(resultSet.getString("franch")).append("\"")
-                .append("},");
+                .append("\"eternal_name\":\"").append(resultSet.getString("eternal_name")).append("\"")
+            .append("},");
         }
         if (json.length() > 1) json.setLength(json.length()-1); // Remove trailing comma
         json.append("]");
