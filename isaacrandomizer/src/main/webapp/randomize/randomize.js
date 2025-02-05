@@ -1,5 +1,3 @@
-// Copyright 2019 Google LLC
-// 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
@@ -11,85 +9,53 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
+var max = 5; 
+var permCharVector = [];
+var checkedValues = [];
 
-/**
- * Adds a random image to the page.
- */
-function randomizeImage() {
-  // The images directory contains 13 images, so generate a random index between
-  // 1 and 13.
-  const imageIndex = Math.floor(Math.random() * 4) + 1;
-  
-  var set;
-
-  if(imageIndex == 1){
-    set = 'halo';
-  } else if (imageIndex == 2) {
-    set = 'knight';
-  } else if (imageIndex == 3) {
-    set = 'pkmn';
-  } else {
-    set = 'tes';
-  }
-
-  const imgUrl = '/resources/images/foursoulsets/set_' + set + '.png';
-
-  const imgElement = document.createElement('img');
-  //imgElement.classList.add("g2icon lazyloaded");
-  imgElement.src = imgUrl;
-
-  const imageContainer = document.getElementById('random-image-container');
-  // Remove the previous image.
-  imageContainer.innerHTML = '';
-  imageContainer.appendChild(imgElement);
+async function resetmax(){
+  max = 5;
+  return false;
 }
 
-function getCardStatus() {
-
+async function resetcards(){
+  permCharVector = [];
+  return false;
+}
+function getCheckedValues() {
+  // Get all checkboxes from the form
+  const checkboxes = document.querySelectorAll('#myForm input[type="checkbox"]:checked');
   
-  fetch('/searchapi').then(response => response.json()).then(cards => {
-      var card_counter = 0;
-      const cardList = document.getElementById('cardGrid');
-      console.log('Cards:', cards);
-                cards.forEach(card => {
-                    var set;
-                    card_counter++;
-                    const div = document.createElement('div');
-                    const a = document.createElement('a');
-                    const imgElement = document.createElement('img');
-                    a.innerHTML = card.name; 
-                    
-                    
-                    set = card.set;
-
-                    
-                    const imgUrl = 'https://storage.googleapis.com/fs_char/char/' + set +  '/' + card.name +'.png';
-                
-                    
-                    imgElement.src = imgUrl;
-                    imgElement.classList.add('aligncenter');
-                    imgElement.classList.add('wp-post-image');
-                    imgElement.classList.add('ls-is-cached');
-                    imgElement.classList.add('lazyloaded');
-
-                    div.classList.add('cardGridCell');
-
-                    a.appendChild(imgElement);
-                    div.appendChild(a);
-                    cardList.appendChild(div);
-                });
-      const link = document.getElementById("card_num_res");
-      const cardMessage = card_counter + " Cards Have Been Found";
-      link.innerHTML = cardMessage;
-  });
+  // Extract values of checked checkboxes into an array
+  checkedValues = Array.from(checkboxes).map(checkbox => parseInt(checkbox.value, 10));
+  
+  // Log the array to the console (or handle it as needed)
+  console.log(checkedValues);
 }
 
 async function randcard(){
-  var max = 5; 
+  const form = document.getElementById('card-searchform');
+  const checkboxes = form.querySelectorAll('input[type="checkbox"]:checked');
+  const selectedValues = Array.from(checkboxes).map(checkbox => checkbox.value);
+  console.log('Form Values:', selectedValues);
+
+  const decrease_flag = document.getElementById("decCheckbox");
+  const unique_flag = document.getElementById("uniCheckbox");
+
+  if (unique_flag.checked) {
+    // Checkbox is checked
+    permCharVector = [];
+  }
+
   var count = 1;
 
   try {
-    const response = await fetch('/cardapi');
+    response = await fetch('/randcardapi', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(selectedValues) // Send names as a JSON array
+   });
+
     if (!response.ok) throw new Error('Failed to fetch users');
     
     const charCards = await response.json();
@@ -98,34 +64,51 @@ async function randcard(){
     const cardList = document.getElementById('cardGrid');
     cardList.innerHTML = ''; 
 
+    if(charCards.length < max || charCards.length - (permCharVector.length + checkedValues.length) < max){
+      cardList.innerHTML = 'Failed to Get Cards Error 404';
+      return false;
+    }
+
+    console.log('Filtered Characters:', checkedValues);
+
     var randChars = [];
     var randVector = [];
     var randKeys= [];
     do{
       
       var rn = Math.floor(Math.random() * charCards.length) + 0;
-      if(count == 0){
+      if(count == 0 && !permCharVector.includes(charCards.at(rn).id) && !checkedValues.includes(charCards.at(rn).id)){
         randVector.push(rn);
         randKeys.push(charCards.at(rn).id);
+        permCharVector.push(charCards.at(rn).id);
         count++;
       } else{
-        if(!randVector.includes(rn) && !randKeys.includes(charCards.at(rn).id)){
+        if(!randVector.includes(rn) && !randKeys.includes(charCards.at(rn).id) 
+          && !permCharVector.includes(charCards.at(rn).id) && !checkedValues.includes(charCards.at(rn).id)){
           randVector.push(rn);
           randKeys.push(charCards.at(rn).id);
+          permCharVector.push(charCards.at(rn).id);
           count++;
         }
       }
     } while(count <= max);
   
     randVector.sort((a, b) => a - b);
-    console.log('RANDVector:', randVector);
-    console.log('RandKeys:', randKeys);
+    console.log('RANDnumbers:', randVector);
+    console.log('RandIDs:', randKeys);
     for(let i = 0; i < randVector.length; i++){
       randChars.push(charCards.at(randVector.at(i)))
     }
     console.log('RANDChars:', randChars);
 
-    max--;
+    if (decrease_flag.checked) {
+      // Checkbox is checked
+      if(max != 1)
+        max--;
+    } else {
+       max = 5;
+    }
+    
 
     var eternArray = [];
     for(let i = 0; i < randChars.length; i++){
@@ -152,7 +135,6 @@ async function randcard(){
     let i = 0;
     randChars.forEach(randChar => {
       var set;
-      //card_counter++;
 
       const div = document.createElement('div');
       const div_et = document.createElement('div');
@@ -178,54 +160,54 @@ async function randcard(){
       
       set = randChar.set;
 
-      const imgUrl = 'https://storage.googleapis.com/fs_char/char/' + set +  '/' + randChar.name +'.png';
+      const imgUrl = 'https://res.cloudinary.com/duc5wlr69/image/upload/foursouls/char/' + set +  '/' + randChar.name +'.png';
       var imgUrl_et = '';
       var imgUrl_third = '';
       var imgUrl_fourth = '';
 
       switch(randChar.name) {
         case 'eden':
-          imgUrl_et = 'https://storage.googleapis.com/fs_char/cardback/treasure_deck.png';
-          imgUrl_third = 'https://storage.googleapis.com/fs_char/cardback/treasure_deck.png';
-          imgUrl_fourth = 'https://storage.googleapis.com/fs_char/cardback/treasure_deck.png';
+          imgUrl_et = 'https://res.cloudinary.com/duc5wlr69/image/upload/foursouls/cardback/treasure_deck.png';
+          imgUrl_third = 'https://res.cloudinary.com/duc5wlr69/image/upload/foursouls/cardback/treasure_deck.png';
+          imgUrl_fourth = 'https://res.cloudinary.com/duc5wlr69/image/upload/foursouls/cardback/treasure_deck.png';
           break;
         case 'eden_2':
-          imgUrl_et = 'https://storage.googleapis.com/fs_char/cardback/treasure_deck.png';
-          imgUrl_third = 'https://storage.googleapis.com/fs_char/cardback/treasure_deck.png';
-          imgUrl_fourth = 'https://storage.googleapis.com/fs_char/cardback/treasure_deck.png';
+          imgUrl_et = 'https://res.cloudinary.com/duc5wlr69/image/upload/foursouls/cardback/treasure_deck.png';
+          imgUrl_third = 'https://res.cloudinary.com/duc5wlr69/image/upload/foursouls/cardback/treasure_deck.png';
+          imgUrl_fourth = 'https://res.cloudinary.com/duc5wlr69/image/upload/foursouls/cardback/treasure_deck.png';
           break;
         case 'level_one_isaac':
-          imgUrl_et = 'https://storage.googleapis.com/fs_char/cardback/loot_deck.png';
-          imgUrl_third = 'https://storage.googleapis.com/fs_char/cardback/loot_deck.png';
-          imgUrl_fourth = 'https://storage.googleapis.com/fs_char/cardback/blank.png';
+          imgUrl_et = 'https://res.cloudinary.com/duc5wlr69/image/upload/foursouls/cardback/loot_deck.png';
+          imgUrl_third = 'https://res.cloudinary.com/duc5wlr69/image/upload/foursouls/cardback/loot_deck.png';
+          imgUrl_fourth = 'https://res.cloudinary.com/duc5wlr69/image/upload/foursouls/cardback/blank.png';
           break;
         default:
-          imgUrl_et = 'https://storage.googleapis.com/fs_char/eternals/' + randChar.eternal_name +'.png';
-          imgUrl_third = 'https://storage.googleapis.com/fs_char/cardback/blank.png';
-          imgUrl_fourth = 'https://storage.googleapis.com/fs_char/cardback/blank.png';
+          imgUrl_et = 'https://res.cloudinary.com/duc5wlr69/image/upload/foursouls/eternals/' + randChar.eternal_name +'.png';
+          imgUrl_third = 'https://res.cloudinary.com/duc5wlr69/image/upload/foursouls/cardback/blank.png';
+          imgUrl_fourth = 'https://res.cloudinary.com/duc5wlr69/image/upload/foursouls/cardback/blank.png';
       }
 
       if(eternals.at(i).flip != 'null'){
-        imgUrl_third = 'https://storage.googleapis.com/fs_char/eternals/'  + eternals.at(i).flip +'.png';
+        imgUrl_third = 'https://res.cloudinary.com/duc5wlr69/image/upload/foursouls/eternals/'  + eternals.at(i).flip +'.png';
         const et_name_parts = eternals.at(i).real_name.split('/');
         a_et.innerHTML = et_name_parts[0];
         a_third.innerHTML = et_name_parts[1];
       }
 
       if(randChar.flip != 'null'){
-        imgUrl_third = 'https://storage.googleapis.com/fs_char/char/' + set +  '/'  + randChar.flip +'.png';
+        imgUrl_third = 'https://res.cloudinary.com/duc5wlr69/image/upload/foursouls/char/' + set +  '/'  + randChar.flip +'.png';
         const name_parts = randChar.rname.split('/');
         a_et.innerHTML = name_parts[0];
         a_third.innerHTML = name_parts[1];
       }
 
       if(eternals.at(i).secondary_item != 'null'){
-        imgUrl_third = 'https://storage.googleapis.com/fs_char/eternals/'  + eternals.at(i).secondary_item +'.png';
+        imgUrl_third = 'https://res.cloudinary.com/duc5wlr69/image/upload/foursouls/eternals/'  + eternals.at(i).secondary_item +'.png';
         const et_name_parts = eternals.at(i).real_name.split('+');
         a_et.innerHTML = et_name_parts[0];
         a_third.innerHTML = et_name_parts[1];
         if(eternals.at(i).secondary_item == "legends_end"){
-          imgUrl_fourth = 'https://storage.googleapis.com/fs_char/cardback/noble_deck.png';
+          imgUrl_fourth = 'https://res.cloudinary.com/duc5wlr69/image/upload/foursouls/cardback/noble_deck.png';
           a_fourth.innerHTML = "Noble's Deck";
         }
       }
@@ -280,9 +262,4 @@ async function randcard(){
   } catch (error) {
     console.error('Error:', error);
   }
-}
-
-function closeNav() {
-  document.getElementById("mySidenav").style.width = "0";
-  document.body.style.backgroundColor = "white";
 }

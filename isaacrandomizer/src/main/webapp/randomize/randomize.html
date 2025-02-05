@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="/style.css"></link>
-    <script src="/script.js"></script>
+    <script src="/randomize/randomize.js"></script>
     <title>Four Souls Randomizer</title>
     <a href="/" id="LogoImgLink"><img id="LogoImg" class="aligncenter size-medium ls-is-cached lazyloaded" src="/resources/images/foursoulslogo/FourSoulsLogo.png" alt="Four Souls Logo" width="526" height="300" data-src="/resources/images/foursoulslogo/FourSoulsLogo.png" decoding="async" data-eio-rwidth="1024" data-eio-rheight="584">
       <noscript><img id="LogoImg" class="aligncenter size-medium" src="/resources/images/foursoulslogo/FourSoulsLogo.png" alt="Four Souls Logo" width="526" height="300" data-eio="l" />
@@ -28,21 +28,186 @@
       </ul>
     </div>
 
-    <div id="content">
-      <h1>Random Characters</h1>
-      <p>Click here to see a random set of characters:</p>
-      <button onclick="randcard()">Meow</button>
-      <div class="g2icon lazyloaded" id="random-image-container"></div>
+    <div id="card-searchform">
+    <form method="post" role="search" class="filterforms" >
+      <div>
+        <div>
+          <label>Filter Sets Out:</label>
+          <hr>
+          <div class="dropdown">
+            <button type="button" class="dropdown-btn">Select Set(s)</button>
+            <div class="dropdown-content">
+              <div class="category">--- CORE DECKS ---</div>
+              <label><input type="checkbox" name="set" value="base"> Base Game V2</label>
+              <label><input type="checkbox" name="set" value="fsp"> Four Souls+ V2</label>
+              <label><input type="checkbox" name="set" value="r"> Requiem</label>
+    
+              <div class="category">--- PROMOTIONAL DECKS ---</div>
+              <label><input type="checkbox" name="set" value="g"> Gold Box V2</label>
+              <label><input type="checkbox" name="set" value="rwz"> Requiem Warp Zone</label>
+              <label><input type="checkbox" name="set" value="aa"> Alt Art</label>
+              <label><input type="checkbox" name="set" value="t"> Target</label>
+              <label><input type="checkbox" name="set" value="gi"> Gish</label>
+              <label><input type="checkbox" name="set" value="tw"> Tapeworm</label>
+              <label><input type="checkbox" name="set" value="dk"> Dick Knots</label>
+              <label><input type="checkbox" name="set" value="ret"> Retro</label>
+              <label><input type="checkbox" name="set" value="gf"> G-Fuel</label>
+              <label><input type="checkbox" name="set" value="bum"> The Legend of Bum-bo!</label>
+              <label><input type="checkbox" name="set" value="box"> The Unboxing of Isaac</label>
+              <label><input type="checkbox" name="set" value="p"> Promos</label>
+              <label><input type="checkbox" name="set" value="soi"> Summer of Isaac</label>
+              <label><input type="checkbox" name="set" value="ani"> Aniversary Pack</label>
+    
+              <div class="category">--- Modded ---</div>
+              <label><input type="checkbox" name="set" value="vd"> Voids</label>
+              <label><input type="checkbox" name="set" value="hk"> Hollow Knight</label>
+              <label><input type="checkbox" name="set" value="halo"> Halo</label>
+              <label><input type="checkbox" name="set" value="pkmn"> Pokemon</label>
+              <label><input type="checkbox" name="set" value="tes"> The Elder Scrolls</label>
+              <label><input type="checkbox" name="set" value="moar"> Moar Souls</label>
+            </div>
+          </div>
+        </div>
+        <div id="cardSearchButtonColumns">
+          <input class="formButton" type="button" id="searchsubmit" value="Search" onclick="return randcard();">
+          <input class="formButton" type="reset" id="searchreset" value="Reset all fields">
+        </div>
+      </div>
+    </form>
+
+    <form id="myForm" class="filterforms">
+    <div>
+    <div>
+    <label>Filter Characters Out</label>
+    <hr>  
+    <div class="dropdown">
+      <button type="button" class="dropdown-btn">Select Character(s)</button>
+      <div class="dropdown-content">
+      <label><input type="checkbox" value="1"> Isaac</label>
+      <label><input type="checkbox" value="2"> Maggy</label>
+      <label><input type="checkbox" value="3"> Cain</label>
+      <label><input type="checkbox" value="4"> Judas</label>
+      <label><input type="checkbox" value="5"> Blue Baby</label>
+      <label><input type="checkbox" value="6"> Eve</label>
+      <label><input type="checkbox" value="7"> Samson</label>
+      <label><input type="checkbox" value="8"> Lazarus</label>
+      <label><input type="checkbox" value="9"> Lilith</label>
+      <label><input type="checkbox" value="10"> The Forgotten</label>
+      <label><input type="checkbox" value="11"> Eden</label>
+      <label><input type="checkbox" value="12"> Bum-Bo</label>
+      <label><input type="checkbox" value="13"> Dark Judas</label>
+      <label><input type="checkbox" value="14"> Guppy</label>
+      <label><input type="checkbox" value="15"> Whore of Babylon</label>
+      <label><input type="checkbox" value="16"> Bethany</label>
+      <label><input type="checkbox" value="17"> Jacob & Esau</label>
+      <label><input type="checkbox" value="18"> The Broken</label>
+      <label><input type="checkbox" value="19"> The Dauntless</label>
+      <label><input type="checkbox" value="20"> The Hoarder</label>
+      <label><input type="checkbox" value="21"> The Deceiver</label>
+      <label><input type="checkbox" value="22"> The Soiled</label>
+      <label><input type="checkbox" value="23"> The Curdled</label>
+      <label><input type="checkbox" value="24"> The Savage</label>
+      <label><input type="checkbox" value="25"> The Benighted</label>
+      <label><input type="checkbox" value="26"> The Enigma/Amgine Eht</label>
+      <label><input type="checkbox" value="27"> The Capricious</label>
+      <label><input type="checkbox" value="28"> The Baleful</label>
+      <label><input type="checkbox" value="29"> The Harlot</label>
+      <label><input type="checkbox" value="30"> The Miser</label>
+      <label><input type="checkbox" value="31"> The Empty</label>
+      <label><input type="checkbox" value="32"> The Fettered</label>
+      <label><input type="checkbox" value="33"> The Zealot</label>
+      <label><input type="checkbox" value="34"> The Deserter</label>
+      <label><input type="checkbox" value="35"> Flash Isaac</label>
+      <label><input type="checkbox" value="36"> Azazel</label>
+      <label><input type="checkbox" value="37"> The Lost</label>
+      <label><input type="checkbox" value="38"> The Keeper</label>
+      <label><input type="checkbox" value="39"> Apollyon</label>
+      <label><input type="checkbox" value="40"> Ash</label>
+      <label><input type="checkbox" value="41"> Steven</label>
+      <label><input type="checkbox" value="42"> Bum-Bo the Weird</label>
+      <label><input type="checkbox" value="43"> Edmund</label>
+      <label><input type="checkbox" value="44"> Abe</label>
+      <label><input type="checkbox" value="45"> Baba</label>
+      <label><input type="checkbox" value="46"> Blind Johnny</label>
+      <label><input type="checkbox" value="47"> Blue Archer</label>
+      <label><input type="checkbox" value="48"> Boyfriend</label>
+      <label><input type="checkbox" value="49"> Captain Viridian</label>
+      <label><input type="checkbox" value="50"> Crewmate</label>
+      <label><input type="checkbox" value="51"> Guy Spelunky</label>
+      <label><input type="checkbox" value="52"> Johnny</label>
+      <label><input type="checkbox" value="53"> Pink Knight</label>
+      <label><input type="checkbox" value="54"> Psycho Goreman</label>
+      <label><input type="checkbox" value="55"> Quote</label>
+      <label><input type="checkbox" value="56"> Salad Fingers</label>
+      <label><input type="checkbox" value="57"> The Knight</label>
+      <label><input type="checkbox" value="58"> The Silent</label>
+      <label><input type="checkbox" value="59"> Young Venuz</label>
+      <label><input type="checkbox" value="60"> Stacy</label>
+      <label><input type="checkbox" value="61"> Clubby the Seal</label>
+      <label><input type="checkbox" value="62"> Gish</label>
+      <label><input type="checkbox" value="63"> Level One Isaac</label>
+      <label><input type="checkbox" value="64"> Florian</label>
+      <label><input type="checkbox" value="65"> Bum-Bo the Stout</label>
+      <label><input type="checkbox" value="66"> Masterchief</label>
+      <label><input type="checkbox" value="67"> Masterchief Infinite</label>
+      <label><input type="checkbox" value="68"> The Arbiter</label>
+      <label><input type="checkbox" value="69"> Noble Six</label>
+      <label><input type="checkbox" value="70"> Sgt. Johnson</label>
+      <label><input type="checkbox" value="71"> The Rookie</label>
+      <label><input type="checkbox" value="72"> Shipmaster</label>
+      <label><input type="checkbox" value="73"> Cpt. Keyes</label>
+      <label><input type="checkbox" value="74"> Hornet</label>
+      <label><input type="checkbox" value="75"> The Hollow Knight</label>
+      <label><input type="checkbox" value="76"> The Pale King</label>
+      <label><input type="checkbox" value="77"> Sygna Suit Red</label>
+      <label><input type="checkbox" value="78"> Sygna Suit Blue</label>
+      <label><input type="checkbox" value="79"> Sygna Suit Leaf</label>
+      <label><input type="checkbox" value="80"> Ethan</label>
+      <label><input type="checkbox" value="81"> Lyra</label>
+      <label><input type="checkbox" value="82"> May</label>
+      <label><input type="checkbox" value="83"> Brendan</label>
+      <label><input type="checkbox" value="84"> Wally</label>
+      <label><input type="checkbox" value="85"> Zinna</label>
+      <label><input type="checkbox" value="86"> Dawn</label>
+      <label><input type="checkbox" value="87"> Hilbert</label>
+      <label><input type="checkbox" value="88"> Hilda</label>
+      <label><input type="checkbox" value="89"> Nate</label>
+      <label><input type="checkbox" value="90"> Rosa</label>
+      <label><input type="checkbox" value="91"> Serena</label>
+      <label><input type="checkbox" value="92"> Calem</label>
+      <label><input type="checkbox" value="93"> Selene</label>
+      <label><input type="checkbox" value="94"> Elio</label>
+      <label><input type="checkbox" value="95"> Summer Gloria</label>
+      <label><input type="checkbox" value="96"> Marnie</label>
+      <label><input type="checkbox" value="97"> Dogma</label>
+      <label><input type="checkbox" value="98"> Sodom & Gaomorrah</label>
+      <label><input type="checkbox" value="99"> The Nerevarine</label>
+      <label><input type="checkbox" value="100"> The Last Dragonborn</label>
+      <label><input type="checkbox" value="101"> Champion of Cyrodiil</label>
+      <label><input type="checkbox" value="102"> Reverie</label>
+      <label><input type="checkbox" value="103"> Basement Dweller</label>
+    </div>
+    </div>
+    </div>
+    <div id="cardSearchButtonColumns">
+      <button type="button" class="formButton" onclick="getCheckedValues()">Add to Filter List</button>
+      <input class="formButton" type="reset" id="searchreset" value="Reset all fields">
+    </div>
+    </div>
+    </form>
     </div>
 
-    <h1>Search Results</h1>
+    <label><input type="checkbox" name="set" id="decCheckbox" checked> Decrease Over Time?</button></label>
+    <label><input type="checkbox" name="set" id="uniCheckbox" checked> No Unique Cards</button></label>
+    <label><button class="formButton" type="button" onclick="resetmax();">Reset Amount of Cards Dealt.</button></label>
+    <label><button class="formButton" type="button" onclick="resetcards();">Reset Cards Taken Out.</button></label>
+
+    <h1>Randomize Results</h1>
 
     <h3 id = card_num_res ></h3>
      
-     
     <div id="cardGrid">
     </div>
-
 
     </div>
     <div class="slideshow">

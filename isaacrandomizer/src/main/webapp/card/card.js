@@ -14,16 +14,23 @@
 const searchParams = new URLSearchParams({
     searchtext: '', // Name or keyword
     set: '',
+    deck_type:'',
 });
 console.log('param:', searchParams.toString());
 let params = new URL(document.location.toString()).searchParams;
 
+// What's fetched? ID, Name, Set, *Deck_Type, *Special, Special_Name, *File_Name, Franch
 fetch(`/cards?${params.toString()}`)
     .then(response => response.json())
     .then(cards => {
         const cardList = document.querySelector('main');
         console.log('Cards:', cards);
                 cards.forEach(card => {
+
+                    var state_flag = 1;
+                    var end_flag = 1;
+
+                do{
                     const div = document.createElement('div');
                     const left = document.createElement('div');
                     const info = document.createElement('div');
@@ -34,14 +41,40 @@ fetch(`/cards?${params.toString()}`)
                     const imgElement = document.createElement('img');
                     const backimgElement = document.createElement('img');
                     h.innerHTML = card.name;
+
+                    if(card.special == 'states'){
+                        end_flag = parseInt(card.special_name);
+                        const names = card.name.split("+");
+                        h.innerHTML = names[state_flag - 1];
+                    }
+
+                    if(card.special == 'bonus'){
+                        end_flag = 2;
+                        const names = card.name.split("+");
+                        h.innerHTML = names[state_flag - 1];
+                    }
                     
                     const set = card.set;
-                    var imgUrl = 'https://storage.googleapis.com/fs_char/' + card.deck_type + '/' + set +  '/' + card.file_name +'.png';
+                    var imgUrl = 'https://res.cloudinary.com/duc5wlr69/image/upload/foursouls/' + card.deck_type + '/' + set +  '/' + card.file_name +'.png';
 
-                    if(card.deck_type == 'eternals')
-                        imgUrl = 'https://storage.googleapis.com/fs_char/' + card.deck_type +  '/' + card.file_name +'.png';
+                    backimgUrl = 'https://res.cloudinary.com/duc5wlr69/image/upload/foursouls/cardback/' + card.deck_type + '.png';
 
-                    backimgUrl = 'https://storage.googleapis.com/fs_char/cardback/' + card.deck_type + '.png';
+                    if(card.special == 'states' && state_flag > 1){
+                        var imgUrl = 'https://res.cloudinary.com/duc5wlr69/image/upload/foursouls/' + card.deck_type + '/' + set +  '/' + card.file_name + state_flag +'.png';
+                    }
+
+                    if(card.special == 'flip')
+                        backimgUrl = 'https://res.cloudinary.com/duc5wlr69/image/upload/foursouls/' + card.deck_type + '/' + set +  '/' + card.special_name +'.png';
+
+                    if(card.deck_type == 'eternals'){
+                        imgUrl = 'https://res.cloudinary.com/duc5wlr69/image/upload/foursouls/' + card.deck_type +  '/' + card.file_name +'.png';
+                        if(card.special == 'flip')
+                            backimgUrl = 'https://res.cloudinary.com/duc5wlr69/image/upload/foursouls/' + card.deck_type +  '/' +  card.special_name +'.png';
+                    }
+
+                    if(card.special == 'bonus' && state_flag > 1){
+                        var imgUrl = 'https://res.cloudinary.com/duc5wlr69/image/upload/foursouls/' + card.deck_type +  '/' + card.special_name +'.png';
+                    }
 
                     a.classList.add('swipebox');
                     a2.classList.add('swipebox');
@@ -75,8 +108,21 @@ fetch(`/cards?${params.toString()}`)
                     div.appendChild(right);
                     cardList.appendChild(h);
                     cardList.appendChild(div);
+
+                    state_flag++;
+                } while(state_flag <= end_flag);
                 });
     })
     .catch(error => {
         console.error('Error fetching data:', error);
     });
+
+    /* 
+    Gets traits from name & set.
+
+    SELECT t.name 
+    FROM cards c 
+    JOIN card_types ct ON ct.card_id = c.id 
+    JOIN types t ON t.id = ct.type_id 
+    WHERE c.name = 'Serperior' AND c.c_set = 'pkmn';
+    */
