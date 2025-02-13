@@ -39,6 +39,7 @@ public class CardSearchServlet  extends HttpServlet {
         String searchText = request.getParameter("searchtext");
         String set = request.getParameter("set");
         String d_type = request.getParameter("deck_type");
+        String f_type = request.getParameter("footer_type");
         String cardType = request.getParameter("card_type");
         String franch = request.getParameter("franch");
         System.out.println("d_type " + d_type);
@@ -48,6 +49,11 @@ public class CardSearchServlet  extends HttpServlet {
             query += " join card_types ct on ct.card_id = c.id";
             query += " join types t on t.id = ct.type_id";
         }
+
+        if (f_type != null && !f_type.isEmpty()) {
+            query += " JOIN card_footers cf ON cf.card_id = c.id";
+            query += " JOIN footers f ON f.id = cf.footer_id";
+        }
         query += "  WHERE 1=1";
 
         if (searchText != null && !searchText.isEmpty()) {
@@ -55,6 +61,10 @@ public class CardSearchServlet  extends HttpServlet {
                 query += " AND c.name LIKE ?";
             else
                 query += " AND name LIKE ?";
+        }
+
+        if (f_type != null && !f_type.isEmpty()) {
+            query += " AND f.name = ?";
         }
 
         if (set != null && !set.isEmpty()) {
@@ -78,6 +88,9 @@ public class CardSearchServlet  extends HttpServlet {
             int paramIndex = 1;
             if (searchText != null && !searchText.isEmpty()) {
                 statement.setString(paramIndex++, "%" + searchText + "%");
+            }
+            if (f_type != null && !f_type.isEmpty()) {
+                statement.setString(paramIndex++, f_type);
             }
             if (set != null && !set.isEmpty()) {
                 statement.setString(paramIndex++, set);
