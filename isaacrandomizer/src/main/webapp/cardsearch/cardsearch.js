@@ -10,12 +10,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-// searchtext=&set=&card_type=&franch=
 const searchParams = new URLSearchParams({
     searchtext: '',
     set: '',
     card_type: '',
-    franch: ''
+    footer_type: '',
+    franch: '',
 });
 
 let params = new URL(document.location.toString()).searchParams;
@@ -42,12 +42,16 @@ fetch(`/cardsearch/?${params.toString()}`)
                 const imgElement = document.createElement('img');
                 const specialElement = document.createElement('img');
 
-                //a.innerHTML = card.name;
                 a.href = `/card/card.html/?searchtext=${card.file_name}&set=${card.set}&deck_type=${card.deck_type}`;
 
-                let imgUrl = `https://res.cloudinary.com/duc5wlr69/image/upload/c_scale,h_420,w_308/foursouls/${card.deck_type}/${card.set}/${card.file_name}.png`;
+                var resolution = 'c_scale,h_420,w_308';
+                if(card.deck_type == 'room'){
+                    resolution = 'c_scale,h_308,w_420';
+                }
+                    
+                let imgUrl = `https://res.cloudinary.com/duc5wlr69/image/upload/${resolution}/foursouls/${card.deck_type}/${card.set}/${card.file_name}.png`;
                 if (card.deck_type === 'eternals') {
-                    imgUrl = `https://res.cloudinary.com/duc5wlr69/image/upload/c_scale,h_420,w_308/foursouls/${card.deck_type}/${card.file_name}.png`;
+                    imgUrl = `https://res.cloudinary.com/duc5wlr69/image/upload/${resolution}/foursouls/${card.deck_type}/${card.file_name}.png`;
                 }
 
                 imgElement.src = `${imgUrl}`;
@@ -56,7 +60,7 @@ fetch(`/cardsearch/?${params.toString()}`)
 
                 div.classList.add('cardGridCell');
 
-                if(card.special != 'null'){
+                if(card.special != ''){
                     if(card.special == 'flip')
                         var simgUrl = `/resources/images/ui/FlipCornerNote.png`;
                     else if(card.special == 'states' )

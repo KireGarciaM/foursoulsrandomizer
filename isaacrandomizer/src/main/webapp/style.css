@@ -1,3 +1,8 @@
+@font-face {
+  font-family: 'FourSoulsMain'; /*a name to be used later*/
+  src: url('resources/images/ui/aio.ttf'); /*URL to font*/
+}
+
 body {
   margin: 0px;
   padding: 0px;
@@ -475,8 +480,32 @@ test.error404 {
   width: 100%;
   content:'(not yet done!)';
   }
-  #menu-main-menu li a {
+   #menu-main-menu li.woodchest::after {
   display: block;
+  position: absolute;
+  font-size: 40%;
+  top: 130px;
+  width: 100%;
+  content:'(not yet done!)';
+  }
+   #menu-main-menu li.dirtychest::after {
+  display: block;
+  position: absolute;
+  font-size: 40%;
+  top: 130px;
+  width: 100%;
+  content:'(not yet done!)';
+  }
+   #menu-main-menu li.holychest::after {
+  display: block;
+  position: absolute;
+  font-size: 40%;
+  top: 130px;
+  width: 100%;
+  content:'(not yet done!)';
+  }
+  #menu-main-menu li a {
+  display: contents;
   height:48px;
   width: 100%;
   position: absolute;
@@ -676,16 +705,20 @@ test.error404 {
   #OriginSet .difficultyIndicator.ultraDifficulty { background-image: url(https://foursouls.com/wp-content/uploads/2022/04/DifficultyIconUltraHard.png); }
   #OriginSet .difficultyIndicator.compDifficulty { background-image: url(https://foursouls.com/wp-content/uploads/2022/08/DifficultyIconCompetitive.png); }
   #OriginSet .rebalancedIndicator { background-image: url(https://foursouls.com/wp-content/uploads/2022/02/SetIconrb.png); }
-  #OriginSet .competitiveIndicator { background-image: url(https://foursouls.com/wp-content/uploads/2021/11/SetIconcomp.png); }
-  #OriginSet.b .originIndicator { background-image: url(https://foursouls.com/wp-content/uploads/2021/10/SetIconb.png); }
-  #OriginSet.g .originIndicator { background-image: url(https://foursouls.com/wp-content/uploads/2021/10/SetIcong.png); }
-  #OriginSet.fsp .originIndicator { background-image: url(https://foursouls.com/wp-content/uploads/2021/10/SetIconfsp.png); }
   #OriginSet.r .originIndicator { background-image: url(https://foursouls.com/wp-content/uploads/2021/10/SetIconr.png); }
   #OriginSet.rwz .originIndicator { background-image: url(https://foursouls.com/wp-content/uploads/2021/10/SetIconrwz.png); }
   #OriginSet.aa .originIndicator { background-image: url(https://foursouls.com/wp-content/uploads/2021/10/SetIconaa.png); }
-  #OriginSet.b2 .originIndicator { background-image: url(https://foursouls.com/wp-content/uploads/2021/10/SetIconb2.png); }
-  #OriginSet.g2 .originIndicator {background-image: url(https://foursouls.com/wp-content/uploads/2021/10/SetIcong2.png); }
-  #OriginSet.fsp2 .originIndicator { background-image: url(https://foursouls.com/wp-content/uploads/2021/10/SetIconfsp2.png); }
+  #OriginSet.base .originIndicator { background-image: url(https://foursouls.com/wp-content/uploads/2021/10/SetIconb2.png); }
+  #OriginSet.g .originIndicator {background-image: url(https://foursouls.com/wp-content/uploads/2021/10/SetIcong2.png); }
+  #OriginSet.fsp .originIndicator { background-image: url(https://foursouls.com/wp-content/uploads/2021/10/SetIconfsp2.png); }
+  #OriginSet.halo .originIndicator { background-image: url(resources/images/foursoulsets/set_halo.png); }
+  #OriginSet.soi .originIndicator { background-image: url(resources/images/foursoulsets/SetIconsoi.png); }
+  #OriginSet.ani .originIndicator { background-image: url(resources/images/foursoulsets/set_ani.png); }
+  #OriginSet.void .originIndicator { background-image: url(resources/images/foursoulsets/set_void.png); }
+  #OriginSet.hk .originIndicator { background-image: url(resources/images/foursoulsets/set_knight.png); }
+  #OriginSet.pkmn .originIndicator { background-image: url(resources/images/foursoulsets/set_pkmn.png); }
+  #OriginSet.tes .originIndicator { background-image: url(resources/images/foursoulsets/set_tes.png); }
+  #OriginSet.moar .originIndicator { background-image: url(https://foursouls.com/wp-content/uploads/2022/04/DifficultyIconNormHard.png); }
   #OriginSet.t .originIndicator { background-image: url(https://foursouls.com/wp-content/uploads/2021/10/SetIcont.png); }
   #OriginSet.gi .originIndicator { background-image: url(https://foursouls.com/wp-content/uploads/2021/10/SetIcongi.png); }
   #OriginSet.p .originIndicator { background-image: url(https://foursouls.com/wp-content/uploads/2021/10/SetIconp.png); }
@@ -712,7 +745,10 @@ test.error404 {
   font-family:FourSoulsStatBlock, Helvetica, sans-serif;
   }
   #StatTable .value, #EffectTable .value, #RewardTable .value {
-  font-size:30px;
+  font-size:40px;
+  }
+  .StatTable{
+    font-size:40px;
   }
   .statIcon, .effectModifierIcon, .rewardIcon {
   width:50px;

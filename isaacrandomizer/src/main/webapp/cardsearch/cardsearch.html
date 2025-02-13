@@ -14,7 +14,7 @@
 
   <body>
     <div class = "planetarium"></div>
-    <h1 class="center">Card Randomizer featuring Kire Cards</h1>
+    <h1 class="center">Kire's Four Souls Card Repository</h1>
     <p class="center">This is a WIP.</p>
 
     <div class="container" id="page-content">
@@ -69,11 +69,12 @@
             <option value="box">The Unboxing of Isaac</option>
             <option value="p">Promos</option>
             <option value="" disabled="">--- Modded ---</option>
-            <option value="vd">Voids</option>
-            <option value="kt">Hollow Knight</option>
+            <option value="void">Voids</option>
+            <option value="hk">Hollow Knight</option>
             <option value="halo">Halo</option>
             <option value="pkmn">Pokemon</option>
             <option value="tes">The Elder Scrolls</option>
+            <option value="moar">Moar Souls</option>
           </select></label>
         </div>
 
@@ -132,43 +133,28 @@
           </select></label>
         </div>
 
-        <!--<div id="Cardsearch_Footnotes"><label>Card Footnotes:
-          <select name="card_footnotes" id="Cardsearch_Footnotes_Select">
+        <div id="Cardsearch_Footnotes"><label>Card Footnotes:
+          <select name="footer_type" id="Cardsearch_Footnotes_Select">
             <option value="">Please Select...</option>
-            <option value="a">Ambush</option>
-            <option value="c">Curse</option>
-            <option value="e">Eternal</option>
-            <option value="g">Guppy</option>
-            <option value="i">Indomitable</option>
-            <option value="t">Trinket</option>
-            <option value="f">Companion</option>
-            <option value="v">Familliar</option>
+            <option value="ambush">Ambush</option>
+            <option value="curse">Curse</option>
+            <option value="eternal">Eternal</option>
+            <option value="guppy">Guppy</option>
+            <option value="indomitable">Indomitable</option>
+            <option value="trinket">Trinket</option>
+            <option value="companion">Companion</option>
+            <option value="familiar">Familliar</option>
+            <option value="external">External</option>
+            <option value="invasion">Invasion</option>
+            <option value="bonus">Bonus</option>
+            <option value="void_familiar">Void Familliar</option>
+            <option value="optional">Optional</option>
+            <option value="unattackable">Unattackable</option>
+            <option value="fragile">Fragile</option>
+            <option value="summon">Summon</option>
+            <option value="rank">Rank</option>
           </select></label>
-        </div>-->
-
-        <!--<div id="Cardsearch_3PP"><label>Minimum Players:
-          <select name="competitive_only" id="Cardsearch_3PP_Select">
-            <option value="">Please Select...</option>
-            <option value="0">Unrestricted</option>
-            <option value="1">3P+ Only</option>
-          </select></label>
-        </div>-->
-
-        <!--<div id="Cardsearch_Identical"><label>Hide Identical Cards:
-          <select name="identical">
-            <option value="yes">Yes</option>
-            <option value="no">No</option>
-          </select></label>
-        </div>-->
-
-        <!--<div id="Cardsearch_Outdated"><label>Card Status:
-          <select name="cardstatus">
-            <option value="cur">Current</option>
-            <option value="ret">Retired</option>
-            <option value="con">Concept</option>
-            <option value="all">All</option>
-          </select></label>
-        </div>-->
+        </div>
 
         <!--<div id="Cardsearch_HoloCard"><label>Holo Status:
           <select name="holo">
@@ -236,9 +222,8 @@
         </div>
 
         <div id="cardSearchButtonColumns">
-          <input class="formButton" type="submit" id="searchsubmit" value="Search"><input class="formButton" type="reset" id="searchreset" value="Reset all fields">
-          <label for="sort" class="screen-reader-text">Sort Alphabetically?</label>
-          <input type="checkbox" id="sort" name="sort" value="abc" title="Sort By Card Order/ABC">
+          <input class="formButton" type="submit" id="searchsubmit" value="Search">
+          <input class="formButton" type="reset" id="searchreset" value="Reset all fields">
         </div>
         </form>
 

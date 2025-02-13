@@ -12,7 +12,7 @@
 
   <body>
     <div class = "planetarium"></div>
-    <h1 class="center">Card Randomizer featuring Kire Cards</h1>
+    <h1 class="center">Kire's Four Souls Card Repository</h1>
     <p class="center">This is a WIP.</p>
 
     <div class="container" id="page-content">
@@ -57,7 +57,7 @@
             <div class="CardTypeHover">
               <img src="/resources/images/foursoulstypes/TreasureCardBack-110x150.png" alt="TreasureCardDeck" data-src="/wp-content/uploads/2021/10/TreasureCardBack-110x150.png" decoding="async" class=" ls-is-cached lazyloaded" data-eio-rwidth="110" data-eio-rheight="150"><noscript><img src="/wp-content/uploads/2021/10/TreasureCardBack-110x150.png" alt="TreasureCardDeck" data-eio="l" /></noscript>
             </div>
-            <h3>Treasure</h3><span class="cardNumber">(452)</span>
+            <h3>Treasure</h3><span class="cardNumber">(454)</span>
           </a>
         </div>
 
@@ -102,7 +102,7 @@
             <div class="CardTypeHover OutsideCardTypeHover">
               <img src="/resources/images/foursoulstypes/extras_cardback110x150.png" alt="OutsideCardDeck" data-src="/wp-content/uploads/2022/03/OutsideCardBack-110x150.png" decoding="async" class=" ls-is-cached lazyloaded" data-eio-rwidth="110" data-eio-rheight="150"><noscript><img src="/wp-content/uploads/2022/03/OutsideCardBack-110x150.png" alt="OutsideCardDeck" data-eio="l" /></noscript>
             </div>
-            <h3>Outside Cards (Extras)</h3><span class="cardNumber">(18)</span>
+            <h3>Outside Cards (Extras)</h3><span class="cardNumber">(19)</span>
           </a>
         </div>
 
@@ -172,7 +172,7 @@
           <div class="CardExpansionHover">
             <img class="soiicon lazyloaded" src="/resources/images/foursoulsets/set_ani.png" alt="AniversarySetIcon" data-src="/wp-content/uploads/2024/06/SetIconsoi.png" decoding="async"><noscript><img class="soiicon" src="/wp-content/uploads/2024/06/SetIconsoi.png" alt="SummerOfIsaacSetIcon" data-eio="l" /></noscript>
           </div>
-          <h3>Aniversary</h3><span class="cardNumber">(19)</span>
+          <h3>Aniversary</h3><span class="cardNumber">(20)</span>
           </a>
         </div>
       </div>
@@ -295,7 +295,7 @@
             <div class="CardExpansionHover">
               <img class="picon lazyloaded" src="/resources/images/foursoulsets/SetIconp.png" alt="PromoSetIcon" data-src="/wp-content/uploads/2021/10/SetIconp.png" decoding="async" data-eio-rwidth="128" data-eio-rheight="128"><noscript><img class="picon" src="/wp-content/uploads/2021/10/SetIconp.png" alt="PromoSetIcon" data-eio="l" /></noscript>
             </div>
-            <h3>Promos</h3><span class="cardNumber">(21)</span>
+            <h3>Promos</h3><span class="cardNumber">(24)</span>
           </a>
         </div>
       </div>
@@ -356,20 +356,20 @@
 
       <h2>Advanced Card Search</h2>
 
-      <form method="get" id="card-searchform" role="search" action="/card-search/">
+      <form method="get" id="card-searchform" role="search" action="/cardsearch/cardsearch.html">
         <div id="cardSearchColumns">
           <div id="Cardsearch_SearchText"><label>Search Text:
             <input name="searchtext" type="text" value="" placeholder="Search Text"></label>
           </div>
         <div id="Cardsearch_Origin"><label>Origin Set:
-          <select name="origin" id="Cardsearch_Origin_Select">
+          <select name="set" id="Cardsearch_Origin_Select">
             <option value="">Please Select...</option>
             <option value="" disabled="">--- CORE DECKS ---</option>
-            <option value="b2">Base Game V2</option>
-            <option value="fsp2">Four Souls+ V2</option>
+            <option value="base">Base Game V2</option>
+            <option value="fsp">Four Souls+ V2</option>
             <option value="r">Requiem</option>
             <option value="" disabled="">--- PROMOTIONAL DECKS ---</option>
-            <option value="g2">Gold Box V2</option>
+            <option value="g">Gold Box V2</option>
             <option value="rwz">Requiem Warp Zone</option>
             <option value="aa">Alt Art</option>
             <option value="t">Target</option>
@@ -382,23 +382,12 @@
             <option value="box">The Unboxing of Isaac</option>
             <option value="p">Promos</option>
             <option value="" disabled="">--- Modded ---</option>
-            <option value="vd">Voids</option>
-            <option value="kt">Hollow Knight</option>
-            <option value="hal">Halo</option>
+            <option value="void">Voids</option>
+            <option value="hk">Hollow Knight</option>
+            <option value="halo">Halo</option>
             <option value="pkmn">Pokemon</option>
             <option value="tes">The Elder Scrolls</option>
-            <option value="" disabled="">--- EXTRAS ---</option>
-            <option value="rebalance">Rebalance Pack</option>
-            <option value="blank">Blank</option>
-            <option value="challenge">Challenges</option>
-            <option value="" disabled="">--- RETIRED DECKS ---</option>
-            <option value="b">Base Game V1</option>
-            <option value="g">Gold Box V1</option>
-            <option value="fsp">Four Souls+ V1</option>
-            <option value="" disabled="">--- COMPARISON SEARCHES ---</option>
-            <option value="bb2">Base Game V1+V2</option>
-            <option value="gg2">Gold Box V1+V2</option>
-            <option value="fspfsp2">Four Souls+ V1+V2</option>
+            <option value="moar">Moar Souls</option>
           </select></label>
         </div>
 
@@ -406,34 +395,34 @@
           <select name="card_type">
             <option value="">Please Select...</option>
             <option value="character">Character</option>
-            <option value="eternal">Eternal Treasure</option>
-            <option value="peternal">↳ Passive Eternal Treasure</option>
-            <option value="aeternal">↳ Active Eternal Treasure</option>
-            <option value="paideternal">↳ Paid Eternal Treasure</option>
-            <option value="oeternal">↳ One-Use Eternal Treasure</option>
-            <option value="seternal">↳ Soul Eternal Treasure</option>
+            <option value="eternal_treasure">Eternal Treasure</option>
+            <option value="passive_eternal">↳ Passive Eternal Treasure</option>
+            <option value="active_eternal">↳ Active Eternal Treasure</option>
+            <option value="paid_eternal">↳ Paid Eternal Treasure</option>
+            <option value="oneuse_eternal">↳ One-Use Eternal Treasure</option>
+            <option value="soul_eternal">↳ Soul Eternal Treasure</option>
             <option value="treasure">Treasure</option>
-            <option value="ptreasure">↳ Passive Treasure</option>
-            <option value="atreasure">↳ Active Treasure</option>
-            <option value="paidtreasure">↳ Paid Treasure</option>
-            <option value="otreasure">↳ One-Use Treasure</option>
-            <option value="streasure">↳ Soul Treasure</option>
+            <option value="passive_treasure">↳ Passive Treasure</option>
+            <option value="active_treasure">↳ Active Treasure</option>
+            <option value="paid_treasure">↳ Paid Treasure</option>
+            <option value="oneuse_treasure">↳ One-Use Treasure</option>
+            <option value="soul_treasure">↳ Soul Treasure</option>
             <option value="monster">Monster</option>
-            <option value="bmonster">↳ Basic Monster</option>
-            <option value="cmonster">↳ Cursed Monster</option>
-            <option value="hmonster">↳ Holy Monster</option>
-            <option value="chamonster">↳ Charmed Monster</option>
-            <option value="gevent">↳ Good Event</option>
-            <option value="bevent">↳ Bad Event</option>
+            <option value="basic_monster">↳ Basic Monster</option>
+            <option value="cursed_monster">↳ Cursed Monster</option>
+            <option value="holy_monster">↳ Holy Monster</option>
+            <option value="charmed_monster">↳ Charmed Monster</option>
+            <option value="good_event">↳ Good Event</option>
+            <option value="bad_event">↳ Bad Event</option>
             <option value="curse">↳ Curse</option>
             <option value="boss">↳ Boss</option>
-            <option value="epic">↳ Epic Boss</option>
+            <option value="epic_boss">↳ Epic Boss</option>
             <option value="void">↳ Void </option>
-            <option value="comp">↳ Companion </option>
-            <option value="pkmob">↳ Pokemon (Catchable)</option>
-            <option value="monster">Familiars</option>
-            <option value="pkmob">↳ Pokemon (Familiar)</option>
-            <option value="void">↳ Void Familiar </option>
+            <option value="companion">↳ Companion </option>
+            <option value="pokemon_catchable">↳ Pokemon (Catchable)</option>
+            <option value="familiars">Familiars</option>
+            <option value="pokemon_familiar">↳ Pokemon (Familiar)</option>
+            <option value="void_familiar">↳ Void Familiar </option>
             <option value="loot">Loot</option>
             <option value="cards">↳ Cards</option>
             <option value="trinkets">↳ Trinkets</option>
@@ -443,64 +432,44 @@
             <option value="bombs">↳ Bombs</option>
             <option value="batteries">↳ Batteries</option>
             <option value="keys">↳ Keys</option>
-            <option value="dice">↳ Dice Shards</option>
-            <option value="sheart">↳ Soul Hearts</option>
-            <option value="bheart">↳ Black Hearts</option>
-            <option value="sack">↳ Sacks</option>
-            <option value="lsoul">↳ Lost Soul</option>
+            <option value="dice_shards">↳ Dice Shards</option>
+            <option value="soul_hearts">↳ Soul Hearts</option>
+            <option value="black_hearts">↳ Black Hearts</option>
+            <option value="sacks">↳ Sacks</option>
+            <option value="lost_soul">↳ Lost Soul</option>
             <option value="money">↳ Money</option>
-            <option value="1c">↳ ↳ 1 Cents</option>
-            <option value="2c">↳ ↳ 2 Cents</option>
-            <option value="3c">↳ ↳ 3 Cents</option>
-            <option value="4c">↳ ↳ 4 Cents</option>
-            <option value="5c">↳ ↳ Nickel</option>
-            <option value="10c">↳ ↳ Dime</option>
             <option value="wildcard">↳ Wildcard</option>
-            <option value="bsoul">Bonus Soul</option>
+            <option value="bonus_soul">Bonus Soul</option>
             <option value="room">Room</option>
-            <option value="outside">Extra</option>
+            <option value="extra">Extra</option>
+            <option value="noble_deck">Noble Deck</option>
           </select></label>
         </div>
 
         <div id="Cardsearch_Footnotes"><label>Card Footnotes:
-          <select name="card_footnotes" id="Cardsearch_Footnotes_Select">
+          <select name="footer_type" id="Cardsearch_Footnotes_Select">
             <option value="">Please Select...</option>
-            <option value="a">Ambush</option>
-            <option value="c">Curse</option>
-            <option value="e">Eternal</option>
-            <option value="g">Guppy</option>
-            <option value="i">Indomitable</option>
-            <option value="t">Trinket</option>
-            <option value="f">Companion</option>
-            <option value="v">Familliar</option>
+            <option value="ambush">Ambush</option>
+            <option value="curse">Curse</option>
+            <option value="eternal">Eternal</option>
+            <option value="guppy">Guppy</option>
+            <option value="indomitable">Indomitable</option>
+            <option value="trinket">Trinket</option>
+            <option value="companion">Companion</option>
+            <option value="familiar">Familliar</option>
+            <option value="external">External</option>
+            <option value="invasion">Invasion</option>
+            <option value="bonus">Bonus</option>
+            <option value="void_familiar">Void Familliar</option>
+            <option value="optional">Optional</option>
+            <option value="unattackable">Unattackable</option>
+            <option value="fragile">Fragile</option>
+            <option value="summon">Summon</option>
+            <option value="rank">Rank</option>
           </select></label>
         </div>
 
-        <div id="Cardsearch_3PP"><label>Minimum Players:
-          <select name="competitive_only" id="Cardsearch_3PP_Select">
-            <option value="">Please Select...</option>
-            <option value="0">Unrestricted</option>
-            <option value="1">3P+ Only</option>
-          </select></label>
-        </div>
-
-        <div id="Cardsearch_Identical"><label>Hide Identical Cards:
-          <select name="identical">
-            <option value="yes">Yes</option>
-            <option value="no">No</option>
-          </select></label>
-        </div>
-
-        <div id="Cardsearch_Outdated"><label>Card Status:
-          <select name="cardstatus">
-            <option value="cur">Current</option>
-            <option value="ret">Retired</option>
-            <option value="con">Concept</option>
-            <option value="all">All</option>
-          </select></label>
-        </div>
-
-        <div id="Cardsearch_HoloCard"><label>Holo Status:
+        <!--<div id="Cardsearch_HoloCard"><label>Holo Status:
           <select name="holo">
             <option value="">Please Select...</option>
             <option value="all">All Holo</option>
@@ -508,9 +477,9 @@
             <option value="none">None</option>
             <option value="unknown">Unknown</option>
           </select></label>
-        </div>
+        </div>-->
 
-        <div id="Cardsearch_PrintStatus"><label>Print Status:
+        <!--<div id="Cardsearch_PrintStatus"><label>Print Status:
           <select name="printstatus">
             <option value="">Please Select...</option>
             <option value="yes">In Print</option>
@@ -518,10 +487,10 @@
             <option value="planned">Planned</option>
             <option value="never">Never Printed</option>
           </select></label>
-        </div>
+        </div>-->
 
         <div id="Cardsearch_Franchise"><label>Franchise Origin:
-          <select name="franchise" id="Cardsearch_Franchise_Select">
+          <select name="franch" id="Cardsearch_Franchise_Select">
             <option value="">Please Select...</option>
             <option value="ao">Abe's Odyssey</option>
             <option value="au">Among Us</option>
@@ -566,9 +535,8 @@
         </div>
 
         <div id="cardSearchButtonColumns">
-          <input class="formButton" type="submit" id="searchsubmit" value="Search"><input class="formButton" type="reset" id="searchreset" value="Reset all fields">
-          <label for="sort" class="screen-reader-text">Sort Alphabetically?</label>
-          <input type="checkbox" id="sort" name="sort" value="abc" title="Sort By Card Order/ABC">
+          <input class="formButton" type="submit" id="searchsubmit" value="Search">
+          <input class="formButton" type="reset" id="searchreset" value="Reset all fields">
         </div>
         </form>
 
