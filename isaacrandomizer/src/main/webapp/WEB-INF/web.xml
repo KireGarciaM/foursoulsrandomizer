@@ -1,0 +1,63 @@
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+         http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+    <display-name>Isaac Randomizer</display-name>
+    <servlet>
+        <servlet-name>CardApiServlet</servlet-name>
+        <servlet-class>com.google.sps.servlets.CardApiServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CardApiServlet</servlet-name>
+        <url-pattern>/cardapi</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>CardSearchServlet</servlet-name>
+        <servlet-class>com.google.sps.servlets.CardSearchServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CardSearchServlet</servlet-name>
+        <url-pattern>/cardsearchapi/*</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>CardsServlet</servlet-name>
+        <servlet-class>com.google.sps.servlets.CardsServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CardsServlet</servlet-name>
+        <url-pattern>/cardsapi/*</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>EternalApiServlet</servlet-name>
+        <servlet-class>com.google.sps.servlets.EternalApiServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>EternalApiServlet</servlet-name>
+        <url-pattern>/eternalapi</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>FooterSearchServlet</servlet-name>
+        <servlet-class>com.google.sps.servlets.FooterSearchServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>FooterSearchServlet</servlet-name>
+        <url-pattern>/footersearchapi/*</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>RandomCardApi</servlet-name>
+        <servlet-class>com.google.sps.servlets.RandomCardApi</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RandomCardApi</servlet-name>
+        <url-pattern>/randomcardapi</url-pattern>
+    </servlet-mapping>
+    <welcome-file-list>
+        <welcome-file>index.html</welcome-file>
+    </welcome-file-list>
+</web-app>

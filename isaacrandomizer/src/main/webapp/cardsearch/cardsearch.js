@@ -20,12 +20,12 @@ const searchParams = new URLSearchParams({
 
 let params = new URL(document.location.toString()).searchParams;
 
-fetch(`/cardsearch/?${params.toString()}`)
+fetch(`/cardsearchapi/?${params.toString()}`)
     .then(response => response.json())
     .then(cards => {
         const cardsPerPage = 20;
         let currentPage = 1;
-
+        console.log('in cards =>', "I am Here");
         const cardGrid = document.getElementById('cardGrid');
         const pagination = document.getElementById('pagination');
         const cardNumRes = document.getElementById('card_num_res');
@@ -42,7 +42,7 @@ fetch(`/cardsearch/?${params.toString()}`)
                 const imgElement = document.createElement('img');
                 const specialElement = document.createElement('img');
 
-                a.href = `/card/card.html/?searchtext=${card.file_name}&set=${card.set}&deck_type=${card.deck_type}`;
+                a.href = `/card/card.html?searchtext=${card.file_name}&set=${card.set}&deck_type=${card.deck_type}`;
 
                 var resolution = 'c_scale,h_420,w_308';
                 if(card.deck_type == 'room'){

@@ -1,11 +1,3 @@
-/*package com.google.sps.servlets;
-
-public class test {
-
-}*/
-
-// Copyright 2020 Google LLC
-//
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
@@ -29,14 +21,25 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/cards")
+@WebServlet("/cardsapi")
 public class CardsServlet extends HttpServlet {
 
-    private static final String DB_URL = "jdbc:sqlite:/home/erik_garciamontoya/foursoulsrandomizer/isaacrandomizer/src/main/java/com/google/sps/servlets/testSouls.db";
+    private String dbPath;
+    
+    @Override
+    public void init() throws ServletException {
+        super.init();
+        this.dbPath = getServletContext().getRealPath("/resources/database/testSouls.db");
+        System.out.println("Database Path: " + dbPath);
+    }
+
+    //private static final String DB_URL = "jdbc:sqlite:/home/erik_garciamontoya/foursoulsrandomizer/isaacrandomizer/src/main/java/com/google/sps/servlets/testSouls.db";
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
+        String DB_URL = "jdbc:sqlite:" + dbPath;
 
         String searchText = request.getParameter("searchtext");
         String set = request.getParameter("set");

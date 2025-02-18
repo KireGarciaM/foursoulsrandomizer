@@ -21,16 +21,23 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-// Logs in and logs out the user while also accessing userdata
-// retrieved from having logged in. The data is stored in a 
-// Json and then sent back as a response.
 @WebServlet("/randcardapi")
 public class RandomCardApi extends HttpServlet {
-    private static final String DB_URL = "jdbc:sqlite:/home/erik_garciamontoya/foursoulsrandomizer/isaacrandomizer/src/main/java/com/google/sps/servlets/testSouls.db";
+    private String dbPath;
+    
+    @Override
+    public void init() throws ServletException {
+        super.init();
+        this.dbPath = getServletContext().getRealPath("/resources/database/testSouls.db");
+        System.out.println("Database Path: " + dbPath);
+    }
+    //private static final String DB_URL = "jdbc:sqlite:/home/erik_garciamontoya/foursoulsrandomizer/isaacrandomizer/src/main/java/com/google/sps/servlets/testSouls.db";
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+
+        String DB_URL = "jdbc:sqlite:" + dbPath;
 
         String jsonString = request.getReader().lines().reduce("", (accumulator, actual) -> accumulator + actual);
         org.json.JSONArray setsArray = new org.json.JSONArray(jsonString);

@@ -23,9 +23,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-// Logs in and logs out the user while also accessing userdata
-// retrieved from having logged in. The data is stored in a 
-// Json and then sent back as a response.
 @WebServlet("/cardapi")
 public class CardApiServlet extends HttpServlet {
 

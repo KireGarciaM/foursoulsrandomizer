@@ -23,7 +23,7 @@ function sanitize_string(description_array){
 }
 
 // What's fetched? ID, Name, Set, *Deck_Type, *Special, Special_Name, *File_Name, Franch
-fetch(`/cards?${params.toString()}`)
+fetch(`/cardsapi?${params.toString()}`)
     .then(response => response.json())
     .then(cards => {
         const cardList = document.querySelector('main');
@@ -220,7 +220,7 @@ fetch(`/cards?${params.toString()}`)
     }
 
     function identifierFuntion(file_name, set, deck_type, special, desc) {
-        
+        console.log('File Name and Set:', file_name + ' ' + set);
         
         var description_array;
         var pk_traits = '';
@@ -266,7 +266,7 @@ fetch(`/cards?${params.toString()}`)
             deck_type: deck_type
         });
         //search for footer element
-        fetch(`/footersearch/?${searchParams.toString()}`)
+        fetch(`/footersearchapi/?${searchParams.toString()}`)
             .then(response => response.json())
             .then(footers => {
                 footers.forEach(footer => {
