@@ -27,14 +27,24 @@ import javax.servlet.http.HttpServletResponse;
 // Logs in and logs out the user while also accessing userdata
 // retrieved from having logged in. The data is stored in a 
 // Json and then sent back as a response.
-@WebServlet("/cardsearch/")
+@WebServlet("/cardsearchapi/")
 public class CardSearchServlet  extends HttpServlet {
+    private String dbPath;
+    
+    @Override
+    public void init() throws ServletException {
+        super.init();
+        this.dbPath = getServletContext().getRealPath("/resources/database/testSouls.db");
+        System.out.println("Database Path: " + dbPath);
+    }
 
-    private static final String DB_URL = "jdbc:sqlite:/home/erik_garciamontoya/foursoulsrandomizer/isaacrandomizer/src/main/java/com/google/sps/servlets/testSouls.db";
+    //String DB_URL = "jdbc:sqlite:" + dbPath;
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+
+        String DB_URL = "jdbc:sqlite:" + dbPath;
 
         String searchText = request.getParameter("searchtext");
         String set = request.getParameter("set");
@@ -42,7 +52,7 @@ public class CardSearchServlet  extends HttpServlet {
         String f_type = request.getParameter("footer_type");
         String cardType = request.getParameter("card_type");
         String franch = request.getParameter("franch");
-        System.out.println("d_type " + d_type);
+        System.out.println("d_type " + DB_URL);
         String query = "SELECT * FROM cards c";
         
         if (cardType != null && !cardType.isEmpty()) {
