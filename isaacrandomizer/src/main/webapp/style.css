@@ -3,6 +3,10 @@
   src: url('resources/images/ui/aio.ttf'); /*URL to font*/
 }
 
+._df_book df-container df-floating df-controls-bottom {
+  background-color: rgba(0, 0, 0, 0);
+}
+
 body {
   margin: 0px;
   padding: 0px;
@@ -478,7 +482,6 @@ test.error404 {
   font-size: 40%;
   top: 130px;
   width: 100%;
-  content:'(not yet done!)';
   }
    #menu-main-menu li.woodchest::after {
   display: block;
@@ -486,7 +489,6 @@ test.error404 {
   font-size: 40%;
   top: 130px;
   width: 100%;
-  content:'(not yet done!)';
   }
    #menu-main-menu li.dirtychest::after {
   display: block;
@@ -494,7 +496,6 @@ test.error404 {
   font-size: 40%;
   top: 130px;
   width: 100%;
-  content:'(not yet done!)';
   }
    #menu-main-menu li.holychest::after {
   display: block;
@@ -502,7 +503,6 @@ test.error404 {
   font-size: 40%;
   top: 130px;
   width: 100%;
-  content:'(not yet done!)';
   }
   #menu-main-menu li a {
   display: contents;
@@ -1177,7 +1177,7 @@ test.error404 {
   background-position: bottom right;
   background-size: 100% 20px;
   }
-  .single-rules .wp-block-group.contentsBox .wp-block-columns { gap:0; }
+  .single-rules .wp-block-group.contentsBox .wp-block-columns { gap:0; font: 18px 'Roboto', Helvetica, sans-serif;}
   .single-rules .wp-block-group.contentsBox .wp-block-column { border-right:solid #000 2px; padding:20px; }
   .single-rules .wp-block-group.contentsBox .wp-block-column:last-child { border-right:none; }
   .single-rules .wp-block-group a { color: #000; text-decoration: none; }
@@ -1749,4 +1749,58 @@ test.error404 {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+}
+
+.blackborder{
+  border: 5px solid #000;
+}
+
+body .is-layout-flex {
+  display: flex;
+}
+
+.wp-block-columns {
+  align-items: normal !important;
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap !important;
+}
+
+@media (min-width: 782px) {
+  .wp-block-columns {
+    flex-wrap: nowrap !important;
+  }
+}
+:where(.wp-block-columns.is-layout-flex) {
+  gap: 2em;
+}
+
+:where(.is-layout-flex) {
+  gap: 0.5em;
+}
+
+.wp-block-social-links {
+  background: none;
+  box-sizing: border-box;
+  margin-left: 0;
+  padding-left: 0;
+  padding-right: 0;
+  text-indent: 0;
+}
+
+.wp-container-core-social-links-is-layout-7.wp-container-core-social-links-is-layout-7 {
+  justify-content: center;
+}
+
+.wp-block-social-link {
+  border-radius: 9999px;
+  display: block;
+  height: auto;
+  transition: transform .1s ease;
+}
+
+.wp-block-social-links .wp-block-social-link.wp-social-link {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
 }

@@ -4,23 +4,34 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.google.sps</groupId>
-  <artifactId>portfolio</artifactId>
+  <artifactId>isaacrandomizer</artifactId>
   <version>1</version>
   <packaging>war</packaging>
 
+
+
   <properties>
-    <!-- This project uses Java 8 -->
-    <maven.compiler.source>1.8</maven.compiler.source>
-    <maven.compiler.target>1.8</maven.compiler.target>
+    <!-- This project uses Java 17 -->
+    <maven.compiler.source>17</maven.compiler.source>
+    <maven.compiler.target>17</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <failOnMissingWebXml>false</failOnMissingWebXml>
-  </properties>
 
+    <googleCloudProjectId>horizontal-tube-443820-u6</googleCloudProjectId>
+  </properties>
+  
   <dependencies>
+    <!-- https://mvnrepository.com/artifact/org.xerial/sqlite-jdbc -->
     <dependency>
-        <groupId>com.google.code.gson</groupId>
-        <artifactId>gson</artifactId>
-        <version>2.8.6</version>
+      <groupId>org.xerial</groupId>
+      <artifactId>sqlite-jdbc</artifactId>
+      <version>3.47.1.0</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.json</groupId>
+      <artifactId>json</artifactId>
+      <version>20240303</version>
     </dependency>
     
     <dependency>
@@ -30,25 +41,20 @@
       <scope>provided</scope>
     </dependency>
 
-    <dependency>
-        <groupId>com.google.appengine</groupId>
-        <artifactId>appengine-api-1.0-sdk</artifactId>
-        <version>1.9.59</version>
-    </dependency>
-
   </dependencies>
 
   <build>
+
     <plugins>
       <!-- Provides `mvn package appengine:run` for local testing
            and `mvn package appengine:deploy` for deploying. -->
       <plugin>
         <groupId>com.google.cloud.tools</groupId>
         <artifactId>appengine-maven-plugin</artifactId>
-        <version>2.2.0</version>
+        <version>2.8.3</version>
         <configuration>
           <!-- TODO: set project ID. -->
-          <deploy.projectId>erikgarciam-2-step-2020</deploy.projectId>
+          <deploy.projectId>horizontal-tube-443820-u6</deploy.projectId>
           <deploy.version>1</deploy.version>
         </configuration>
       </plugin>

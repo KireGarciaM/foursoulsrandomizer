@@ -167,18 +167,18 @@ async function randcard(){
 
       switch(randChar.name) {
         case 'eden':
-          imgUrl_et = 'https://res.cloudinary.com/duc5wlr69/image/upload/foursouls/cardback/treasure_deck.png';
-          imgUrl_third = 'https://res.cloudinary.com/duc5wlr69/image/upload/foursouls/cardback/treasure_deck.png';
-          imgUrl_fourth = 'https://res.cloudinary.com/duc5wlr69/image/upload/foursouls/cardback/treasure_deck.png';
+          imgUrl_et = 'https://res.cloudinary.com/duc5wlr69/image/upload/foursouls/cardback/treasure.png';
+          imgUrl_third = 'https://res.cloudinary.com/duc5wlr69/image/upload/foursouls/cardback/treasure.png';
+          imgUrl_fourth = 'https://res.cloudinary.com/duc5wlr69/image/upload/foursouls/cardback/treasure.png';
           break;
         case 'eden_2':
-          imgUrl_et = 'https://res.cloudinary.com/duc5wlr69/image/upload/foursouls/cardback/treasure_deck.png';
-          imgUrl_third = 'https://res.cloudinary.com/duc5wlr69/image/upload/foursouls/cardback/treasure_deck.png';
-          imgUrl_fourth = 'https://res.cloudinary.com/duc5wlr69/image/upload/foursouls/cardback/treasure_deck.png';
+          imgUrl_et = 'https://res.cloudinary.com/duc5wlr69/image/upload/foursouls/cardback/treasure.png';
+          imgUrl_third = 'https://res.cloudinary.com/duc5wlr69/image/upload/foursouls/cardback/treasure.png';
+          imgUrl_fourth = 'https://res.cloudinary.com/duc5wlr69/image/upload/foursouls/cardback/treasure.png';
           break;
         case 'level_one_isaac':
-          imgUrl_et = 'https://res.cloudinary.com/duc5wlr69/image/upload/foursouls/cardback/loot_deck.png';
-          imgUrl_third = 'https://res.cloudinary.com/duc5wlr69/image/upload/foursouls/cardback/loot_deck.png';
+          imgUrl_et = 'https://res.cloudinary.com/duc5wlr69/image/upload/foursouls/cardback/loot.png';
+          imgUrl_third = 'https://res.cloudinary.com/duc5wlr69/image/upload/foursouls/cardback/loot.png';
           imgUrl_fourth = 'https://res.cloudinary.com/duc5wlr69/image/upload/foursouls/cardback/blank.png';
           break;
         default:
@@ -207,7 +207,7 @@ async function randcard(){
         a_et.innerHTML = et_name_parts[0];
         a_third.innerHTML = et_name_parts[1];
         if(eternals.at(i).secondary_item == "legends_end"){
-          imgUrl_fourth = 'https://res.cloudinary.com/duc5wlr69/image/upload/foursouls/cardback/noble_deck.png';
+          imgUrl_fourth = 'https://res.cloudinary.com/duc5wlr69/image/upload/foursouls/cardback/n6_deck.png';
           a_fourth.innerHTML = "Noble's Deck";
         }
       }
