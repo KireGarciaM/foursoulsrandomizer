@@ -626,7 +626,7 @@ test.error404 {
   width:100%;
   height:auto;
   border-radius: 20px;
-  clip-path: inset(3.18% 4.4% 3.67% 4.39% round 4%) !important;
+  clip-path: inset(3.1% round 4%) !important;
   }
   #CardLeft, #CardRight {
   width: 30%;
@@ -877,8 +877,8 @@ test.error404 {
   #cardSearchButtonColumns input[type="checkbox"]:checked {background-image: url(https://foursouls.com/wp-content/uploads/2022/02/SetIconSortABC.png);}
   #cardSearchButtonColumns input[type="checkbox"]:checked:after {content: " "; display:none;}
   #cardGrid {display:flex; flex-wrap:wrap;}
-  .cardGridCell { width:24%; text-align:center; margin: 0 auto; position:relative; }
-  .cardGridCell img { max-width:100%; height:auto; border-radius: 8px; clip-path: inset(4.26% round 4%) !important;}
+  .cardGridCell { width: calc(25% - 20px); text-align: center; margin: 0 auto; position: relative; }
+  .cardGridCell img { max-width:100%; height:auto; border-radius: 8px; clip-path: inset(3.1% round 4%) !important;}
   .cardGridFlippable {position:relative;}
   img.cardsearchDiffIcon {position:absolute; left:-5px; top:-3px; width:40px; height:auto; max-width:20%; border-radius:initial; z-index:1;}
   .cardsearchDiffIcon~.cardsearchDiffIcon {left:33px;}
@@ -1864,4 +1864,13 @@ body .is-layout-flex {
   display: inherit;
   margin-right: -4px;
   margin-left: 8px;
+}
+
+.wp-block-image .aligncenter {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.wp-block-image .aligncenter, .wp-block-image .alignleft, .wp-block-image .alignright, .wp-block-image.aligncenter, .wp-block-image.alignleft, .wp-block-image.alignright {
+  display: table;
 }
