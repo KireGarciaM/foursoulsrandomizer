@@ -118,10 +118,12 @@ fetch(`/cardsapi?${params.toString()}`)
                     a2.appendChild(backimgElement);
                     left.appendChild(a);
                     right.appendChild(a2);
-
+                    
                     leftappendFunction(left, card.file_name, card.set, card.deck_type, card.special, description_array);
-                    rightappendFunction(right, card.file_name, card.set, card.deck_type, card.special, description_array);
-
+                    if(card.special == 'flip' && description_states[1] != null){
+                        rightappendFunction(right, card.file_name, card.set, card.deck_type, card.special, description_states[1]);
+                    }
+                    
                     div.appendChild(left);
                     if(card.special == 'flip'){
                         div.appendChild(info);
@@ -184,6 +186,7 @@ fetch(`/cardsapi?${params.toString()}`)
     function rightappendFunction(right, file_name, set, deck_type, special, desc) {
         if(set == 'pkmn' && special == 'flip' && (deck_type == 'monster' || deck_type == 'familiar' || deck_type == 'outside')){
         var text = desc.split('_')[1].split('|'); 
+        console.log(text);
         for(let i = 0; i < text.length; i++){
             const effects = document.createElement('div');
             effects.classList.add('effectOutcome');
@@ -285,8 +288,12 @@ fetch(`/cardsapi?${params.toString()}`)
 
                     const p1 = document.createElement('p');
                     p1.classList.add('footnoteTitle');
-                    p1.innerText = footer.name;
-
+                    if(footer.name.includes('_')){
+                        p1.innerText = footer.name.split('_')[0] + ' ' + footer.name.split('_')[1];
+                    } else{
+                        p1.innerText = footer.name;
+                    }
+                    
                     footer_div.appendChild(p1);
 
                     const p2 = document.createElement('p');
